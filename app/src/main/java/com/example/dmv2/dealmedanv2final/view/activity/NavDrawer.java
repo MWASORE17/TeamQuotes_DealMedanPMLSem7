@@ -1,5 +1,6 @@
 package com.example.dmv2.dealmedanv2final.view.activity;
 
+
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
