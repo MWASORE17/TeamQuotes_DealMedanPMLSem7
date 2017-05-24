@@ -21,10 +21,22 @@
             android:text="Hello World asdasdd!" />
 
         <Button
-            android:id="@+id/btnSubmit"
+            android:id="@+id/menuWallet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Wallet XML" />
+
+        <Button
+            android:id="@+id/menuCheckCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CheckCode XML" />
+
+        <Button
+            android:id="@+id/menuTopup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top Up XML" />
     </LinearLayout>
     <!--<include-->
         <!--layout="@layout/app_bar_nav_drawer"-->

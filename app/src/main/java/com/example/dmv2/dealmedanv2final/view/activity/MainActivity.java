@@ -18,25 +18,23 @@ import java.security.PublicKey;
 import static android.R.attr.value;
 import static java.lang.Thread.sleep;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ParentActivity {
 
     private DrawerLayout mDraw;
     private ActionBarDrawerToggle mToggle;
-    public Button btnSubmit;
+    public Button menuWallet;
+    public Button menuCheckCode;
+    public Button menuTopup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
-         * initiate item
-         */
+        //initiate item
         init();
 
-        /*
-         * show progress Dialog. dismiss for 5s
-
+        //show progress Dialog. dismiss for 3s
         final ProgressDialog progress = new ProgressDialog(this);
         progress.setMessage("Loading ...");
         progress.show();
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    sleep(5000);
+                    sleep(3000);
                     progress.dismiss();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -52,11 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         _thread.start();
-        */
 
-        /*
-         * initiate component
-         */
         //ToggleMenu and nav drawwer
         mDraw = (DrawerLayout) findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(this, mDraw, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -71,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
     }
 
+    /*
+     * Initiate menu button event
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)) {
@@ -79,15 +76,42 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*
+     * Initiate components and its events
+     */
     public void init(){
-        btnSubmit = (Button) findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(new View.OnClickListener(){
+        final Intent intent = new Intent(MainActivity.this, SubMainActivity.class);
+        //Wallet
+        menuWallet = (Button) findViewById(R.id.menuWallet);
+        menuWallet.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, SubMainActivity.class);
+                intent.putExtra("fragmentName", "wallet");
                 startActivity(intent);
             }
         });
+
+        //CheckCode
+        menuCheckCode = (Button) findViewById(R.id.menuCheckCode);
+        menuCheckCode.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                intent.putExtra("fragmentName", "checkcode");
+                startActivity(intent);
+            }
+        });
+
+        //TopUp
+        menuTopup = (Button) findViewById(R.id.menuTopup);
+        menuTopup.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                intent.putExtra("fragmentName", "topup");
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 

@@ -25,7 +25,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:hint="****"
             android:textAlignment="center" />
     </android.support.design.widget.TextInputLayout>
 
@@ -38,6 +37,5 @@
         android:layout_marginRight="40dp"
         android:layout_weight="0.03"
         android:text="CEK"
-        android:textColor="@android:color/white"
         android:textSize="19dp" />
 </LinearLayout>
