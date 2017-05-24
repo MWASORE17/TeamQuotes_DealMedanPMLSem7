@@ -37,10 +37,11 @@
             android:layout_marginTop="20dp"
             android:text="Wallet Transaction"
             android:textAlignment="center"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Top Up My Wallet" />

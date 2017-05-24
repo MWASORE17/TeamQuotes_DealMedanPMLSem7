@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">DealMedanV2Final</string>
+    <string name="app_name">Deal Medan v.2</string>
     <string name="title_activity_nav_drawer">NavDrawer</string>
+    <string name="title_activity_submain">SubMain</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
