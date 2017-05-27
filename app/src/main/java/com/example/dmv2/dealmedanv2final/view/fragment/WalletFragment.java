@@ -23,7 +23,6 @@ public class WalletFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View _view = inflater.inflate(R.layout.fragment_wallet, container, false);
-
         /* initiate & instantiate */
 
         /* setting */
