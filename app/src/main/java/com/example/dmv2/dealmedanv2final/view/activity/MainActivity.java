@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.dmv2.dealmedanv2final.R;
 
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
 import com.example.dmv2.dealmedanv2final.model.entity.DummyData;
@@ -129,6 +130,9 @@ public class MainActivity extends ParentActivity {
                         } else if (id == R.id.menuTopup) {
                             changefragment(new TopupFragment());
                             setTitle("Top Up");
+                        } else if (id == R.id.menuPayConfirm) {
+                            changefragment(new PayConfirmFragment());
+                            setTitle("Konfirmasi Pembayaran");
                         }
 
                         int size = nav.getMenu().getItem(nav.getMenu().size()-1).getSubMenu().size();
