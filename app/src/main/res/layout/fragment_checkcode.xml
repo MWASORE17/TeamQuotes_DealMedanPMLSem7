@@ -6,7 +6,7 @@
     android:weightSum="1">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -14,17 +14,23 @@
         android:layout_weight="0.03"
         android:text="Masukkan Code"
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0.05">
 
         <EditText
+            style="@style/Widget.AppCompat.EditText"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:capitalize="words"
+            android:inputType="text|textCapCharacters"
             android:textAlignment="center" />
     </android.support.design.widget.TextInputLayout>
 
@@ -36,6 +42,8 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_weight="0.03"
+        android:background="@color/colorPrimary"
         android:text="CEK"
+        android:textColor="@android:color/white"
         android:textSize="19dp" />
 </LinearLayout>

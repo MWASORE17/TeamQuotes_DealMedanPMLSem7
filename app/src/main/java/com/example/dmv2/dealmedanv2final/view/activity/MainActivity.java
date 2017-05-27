@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.dmv2.dealmedanv2final.R;
+import com.example.dmv2.dealmedanv2final.model.entity.DummyData;
 
 import java.security.PublicKey;
 
@@ -81,6 +82,7 @@ public class MainActivity extends ParentActivity {
      */
     public void init(){
         final Intent intent = new Intent(MainActivity.this, SubMainActivity.class);
+
         //Wallet
         menuWallet = (Button) findViewById(R.id.menuWallet);
         menuWallet.setOnClickListener(new View.OnClickListener(){
@@ -110,6 +112,9 @@ public class MainActivity extends ParentActivity {
                 startActivity(intent);
             }
         });
+
+        //initiate data for topup
+        DummyData.initDataTopup();
 
 
     }
