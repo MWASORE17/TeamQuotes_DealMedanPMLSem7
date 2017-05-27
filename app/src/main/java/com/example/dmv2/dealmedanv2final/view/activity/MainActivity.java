@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.dmv2.dealmedanv2final.R;
 
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
 import com.example.dmv2.dealmedanv2final.model.entity.DummyData;
 
@@ -46,7 +47,7 @@ public class MainActivity extends ParentActivity {
         setContentView(R.layout.activity_main);
 
         //initiate item
-//        init();
+        //init();
 
         //show progress Dialog. dismiss for 3s
         final ProgressDialog progress = new ProgressDialog(this);
@@ -71,7 +72,7 @@ public class MainActivity extends ParentActivity {
 //        setSupportActionBar(toolbar);
 
 
-        //ToggleMenu and nav drawwer
+        //ToggleMenu and nav drawer
         mDraw = (DrawerLayout) findViewById(R.id.drawer_layout);
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
         setupDrawerContent(nvDrawer);
@@ -125,6 +126,9 @@ public class MainActivity extends ParentActivity {
                         } else if (id == R.id.menuCheckCode) {
                             changefragment(new CheckCodeFragment());
                             setTitle("Check Code");
+                        } else if (id == R.id.menuTopup) {
+                            changefragment(new TopupFragment());
+                            setTitle("Top Up");
                         }
 
                         int size = nav.getMenu().getItem(nav.getMenu().size()-1).getSubMenu().size();

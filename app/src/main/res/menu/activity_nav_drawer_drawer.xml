@@ -38,6 +38,10 @@
                 android:id="@+id/menuCheckCode"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Check Code" />
+            <item
+                android:id="@+id/menuTopup"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Top Up" />
         </menu>
     </item>
 
