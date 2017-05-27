@@ -15,36 +15,37 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World asdasdd!" />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Hello World asdasdd!" />-->
 
-        <Button
-            android:id="@+id/menuWallet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Wallet XML" />
+        <!--<Button-->
+            <!--android:id="@+id/menuWallet"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Wallet XML" />-->
 
-        <Button
-            android:id="@+id/menuCheckCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CheckCode XML" />
+        <!--<Button-->
+            <!--android:id="@+id/menuCheckCode"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="CheckCode XML" />-->
 
-        <Button
-            android:id="@+id/menuTopup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Top Up XML" />
+        <!--<Button-->
+            <!--android:id="@+id/menuTopup"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Top Up XML" />-->
     </LinearLayout>
-    <!--<include-->
-        <!--layout="@layout/app_bar_nav_drawer"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent" />-->
+    <!--<include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />-->
     <android.support.design.widget.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:id="@+id/nvView"
         app:headerLayout="@layout/nav_header_nav_drawer"
         app:menu="@menu/activity_nav_drawer_drawer"
         android:layout_gravity="start"

@@ -1,9 +1,11 @@
 package com.example.dmv2.dealmedanv2final.view.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,8 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.dmv2.dealmedanv2final.R;
+import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
 
-public class NavDrawer extends AppCompatActivity
+public class NavDrawer extends ParentActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -91,14 +95,20 @@ public class NavDrawer extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.menuWallet) {
+            this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
+            changefragment(new WalletFragment());
+        } else if (id == R.id.menuCheckCode) {
+            this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
+            changefragment(new CheckCodeFragment());
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void changefragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.activity_submain, fragment).commit();
     }
 }
