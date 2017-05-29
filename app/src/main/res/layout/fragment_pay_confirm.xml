@@ -17,7 +17,7 @@
                 android:textAlignment="center"
 
 
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/primary_dark"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:typeface="sans" />
@@ -102,8 +102,9 @@
                 android:id="@+id/konfirmasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Konfirmasi" />
-
+                android:background="@color/primary_dark"
+                android:text="Konfirmasi"
+                android:textColor="@color/primary_light" />
 
 
         </LinearLayout>

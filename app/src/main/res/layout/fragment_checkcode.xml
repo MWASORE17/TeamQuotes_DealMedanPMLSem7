@@ -14,7 +14,7 @@
         android:layout_weight="0.03"
         android:text="Masukkan Code"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/primary_dark"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -42,8 +42,8 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_weight="0.03"
-        android:background="@color/colorPrimary"
+        android:background="@color/primary_dark"
         android:text="CEK"
-        android:textColor="@android:color/white"
+        android:textColor="@color/primary_light"
         android:textSize="19dp" />
 </LinearLayout>
