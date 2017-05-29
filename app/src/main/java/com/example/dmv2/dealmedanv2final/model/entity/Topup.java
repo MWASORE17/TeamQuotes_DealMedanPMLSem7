@@ -2,6 +2,8 @@ package com.example.dmv2.dealmedanv2final.model.entity;
 
 import java.util.ArrayList;
 
+import static com.example.dmv2.dealmedanv2final.view.activity.ParentActivity.getIDRCurrency;
+
 /**
  * Created by Adlin on 24/05/2017.
  */
@@ -39,7 +41,7 @@ public class Topup {
     }
 
     public String getPrice() {
-        return String.valueOf(price);
+        return getIDRCurrency(price);
     }
 
     public void setPrice(double price) {
