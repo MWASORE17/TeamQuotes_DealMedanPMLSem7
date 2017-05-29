@@ -10,6 +10,7 @@ public class Topup {
     private int id;
     private String name;
     private double price;
+    private int count;
 
     public static int _id = 1;
 
@@ -20,6 +21,7 @@ public class Topup {
     public Topup(String name, double price) {
         this.name = name;
         this.price = price;
+
         this.id = _id;
         _id++;
     }
@@ -42,5 +44,13 @@ public class Topup {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }

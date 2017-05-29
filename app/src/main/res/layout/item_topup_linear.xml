@@ -46,7 +46,7 @@
             android:layout_toLeftOf="@+id/item.topup.linear.one">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button_inc"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/text_count"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -68,7 +68,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button_dec"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
