@@ -137,7 +137,7 @@ public class MainActivity extends ParentActivity {
 
                         int size = nav.getMenu().getItem(nav.getMenu().size()-1).getSubMenu().size();
                         for (int i = 0; i < size; i++) {
-                            nav.getMenu().getItem(4).getSubMenu().getItem(i).setChecked(false);
+                            nav.getMenu().getItem(nav.getMenu().size()-1).getSubMenu().getItem(i).setChecked(false);
                         }
 
                         item.setChecked(true);
