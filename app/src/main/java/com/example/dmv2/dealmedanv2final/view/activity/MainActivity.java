@@ -38,17 +38,10 @@ public class MainActivity extends ParentActivity {
     private Toolbar toolbar;
     private MenuItem temp_item;
 
-    public Button menuWallet;
-    public Button menuCheckCode;
-    public Button menuTopup;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //initiate item
-        //init();
 
         //show progress Dialog. dismiss for 3s
         final ProgressDialog progress = new ProgressDialog(this);
@@ -81,8 +74,8 @@ public class MainActivity extends ParentActivity {
         mDraw.addDrawerListener(mToggle);
         mToggle.syncState();
 
-        // set Title App Name
-        //setTitle(R.string.app_name);
+        //set Title App Name
+        setTitle(R.string.app_name);
 
         // set Enabled Home Button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
