@@ -40,7 +40,11 @@ public class Topup {
         this.name = name;
     }
 
-    public String getPrice() {
+    public double getPrice() {
+        return price;
+    }
+
+    public String getIDRPrice() {
         return getIDRCurrency(price);
     }
 

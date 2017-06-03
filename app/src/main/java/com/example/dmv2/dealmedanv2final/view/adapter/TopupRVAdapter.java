@@ -14,6 +14,8 @@ import com.example.dmv2.dealmedanv2final.model.entity.Topup;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment.setTotalPrice;
+
 /**
  * Created by Adlin on 24/05/2017.
  */
@@ -21,10 +23,6 @@ import java.util.List;
 public class TopupRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<Topup> topups;
-//    public List<Topup> getTopups() {
-//        return topups;
-//    }
-    private Context context;
 
     public void setTopup(List<Topup> topups) {
         this.topups = topups;
@@ -52,16 +50,17 @@ public class TopupRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         //Showing data on the views
         _holder.name.setText(_topup.getName());
-        _holder.price.setText(_topup.getPrice());
+        _holder.price.setText(_topup.getIDRPrice());
 
         _holder.button_inc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int count = topups.get(position).getCount();
+                int count = _topup.getCount();
 
                 if(count>=0) {
-                    topups.get(position).setCount(count + 1);
-                    _holder.txt_count.setText(String.valueOf(topups.get(position).getCount()));
+                    _topup.setCount(count + 1);
+                    _holder.txt_count.setText(String.valueOf(_topup.getCount()));
+                    setTotalPrice();
                 }
 
             }
@@ -70,16 +69,18 @@ public class TopupRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         _holder.button_dec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int count = topups.get(position).getCount();
+                int count = _topup.getCount();
 
                 if(count>0){
-                    topups.get(position).setCount(count-1);
-                    _holder.txt_count.setText(String.valueOf(topups.get(position).getCount()));
+                    _topup.setCount(count - 1);
+                    _holder.txt_count.setText(String.valueOf(_topup.getCount()));
+                    setTotalPrice();
                 }
 
             }
         });
-        _holder.txt_count.setText(String.valueOf(topups.get(position).getCount()));
+        _holder.txt_count.setText(String.valueOf(_topup.getCount()));
+        setTotalPrice();
 
     }
 
