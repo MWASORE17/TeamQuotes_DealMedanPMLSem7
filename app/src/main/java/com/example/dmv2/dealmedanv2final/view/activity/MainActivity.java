@@ -4,8 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +20,10 @@ import android.widget.Toast;
 
 import com.example.dmv2.dealmedanv2final.R;
 
+import com.example.dmv2.dealmedanv2final.view.adapter.ViewPagerHomeAdapter;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.DealItemFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.HomeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
@@ -35,6 +40,10 @@ public class MainActivity extends ParentActivity {
     private DrawerLayout mDraw;
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle mToggle;
+
+//    private TabLayout tabLayout;
+//    private ViewPager viewPager;
+
     private Toolbar toolbar;
     private MenuItem temp_item;
 
@@ -90,6 +99,14 @@ public class MainActivity extends ParentActivity {
 
         //initiate data for topup
         DummyData.initDataTopup();
+        DummyData.initDataDealItem();
+
+        this.changefragment(new HomeFragment());
+        setTitle("Deals");
+
+//        tabLayout = (TabLayout) findViewById(R.id.tabs);
+//        viewPager = (ViewPager) findViewById(R.id.viewPager);
+//        this.init();
     }
 
     /*
@@ -115,8 +132,9 @@ public class MainActivity extends ParentActivity {
                         if (id == R.id.nav_camera) {
                             // Handle the camera action
                         } else if (id == R.id.nav_gallery) {
-
-                        } else if (id == R.id.nav_slideshow) {
+                            changefragment(new HomeFragment());
+                            setTitle("Deals");
+                        } else if (id == R.id.nav_product_deals) {
 
                         } else if (id == R.id.nav_manage) {
 
@@ -151,6 +169,17 @@ public class MainActivity extends ParentActivity {
     public void changefragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.activity_main, fragment).commit();
     }
+
+//    private void init(){
+//        setupViewPager(viewPager);
+//        tabLayout.setupWithViewPager(viewPager);
+//    }
+//
+//    private void setupViewPager(final ViewPager viewPager) {
+//        ViewPagerHomeAdapter viewPagerAdapter = new ViewPagerHomeAdapter(getSupportFragmentManager());
+//        viewPager.setAdapter(viewPagerAdapter);
+//        tabLayout.setupWithViewPager(viewPager);
+//    }
 
 
 }

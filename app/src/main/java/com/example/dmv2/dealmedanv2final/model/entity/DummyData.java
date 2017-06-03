@@ -1,6 +1,9 @@
 package com.example.dmv2.dealmedanv2final.model.entity;
 
+import java.util.Date;
+
 import static com.example.dmv2.dealmedanv2final.model.entity.Topup.Topups;
+import static com.example.dmv2.dealmedanv2final.model.entity.Dealitem.dealitems;
 import static com.example.dmv2.dealmedanv2final.model.entity.User.*;
 
 /**
@@ -34,6 +37,19 @@ public class DummyData {
         users.add(k);
         users.add(l);
     }
+
+    public static void initDataDealItem() {
+        Dealitem a = new Dealitem("nama1", "tempat1", 50000, 20, "image", "info1", "hl1", 26, "asd");
+        Dealitem b = new Dealitem("nama1", "tempat1", 50000, 20, "image", "info1", "hl1", 26, "asd");
+        Dealitem c = new Dealitem("nama1", "tempat1", 50000, 20, "image", "info1", "hl1", 26, "asd");
+        Dealitem d = new Dealitem("nama1", "tempat1", 50000, 20, "image", "info1", "hl1", 26, "asd");
+        dealitems.add(a);
+        dealitems.add(b);
+        dealitems.add(c);
+        dealitems.add(d);
+    }
+
+
 
     public static void initDataTopup(){
 

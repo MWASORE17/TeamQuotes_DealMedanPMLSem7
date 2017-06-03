@@ -93,8 +93,8 @@ public class NavDrawer extends ParentActivity
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.nav_product_deals) {
+//            this.changefragment(new HomeFragment());
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.menuWallet) {
