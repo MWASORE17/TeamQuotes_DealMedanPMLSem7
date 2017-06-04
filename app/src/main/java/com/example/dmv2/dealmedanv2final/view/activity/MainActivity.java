@@ -1,38 +1,25 @@
 package com.example.dmv2.dealmedanv2final.view.activity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.dmv2.dealmedanv2final.R;
 
-import com.example.dmv2.dealmedanv2final.view.adapter.ViewPagerHomeAdapter;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
-import com.example.dmv2.dealmedanv2final.view.fragment.DealItemFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.HomeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
 import com.example.dmv2.dealmedanv2final.model.entity.DummyData;
 
-import java.security.PublicKey;
-import java.util.List;
+import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
 
-import static android.R.attr.value;
 import static java.lang.Thread.sleep;
 
 public class MainActivity extends ParentActivity {
@@ -144,6 +131,9 @@ public class MainActivity extends ParentActivity {
                         } else if (id == R.id.menuPayConfirm) {
                             changefragment(new PayConfirmFragment());
                             setTitle("Konfirmasi Pembayaran");
+                        } else if (id == R.id.menuInvoice) {
+                            changefragment(new InvoiceFragment());
+                            setTitle("Invoice");
                         }
 
                         int size = nav.getMenu().getItem(nav.getMenu().size()-1).getSubMenu().size();

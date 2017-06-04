@@ -1,5 +1,6 @@
 package com.example.dmv2.dealmedanv2final.view.adapter;
 
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,8 +46,9 @@ public class DealItemRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         _holder.name.setText(_dealitems.getNama());
         _holder.tempat.setText(_dealitems.getTempat());
         _holder.stock.setText(String.valueOf(_dealitems.getStock()));
-        _holder.diskon.setText(String.valueOf(_dealitems.getHarga()*_dealitems.getDiskon()));
-        _holder.price.setText(String.valueOf(_dealitems.getHarga()));
+        _holder.diskon.setText(_dealitems.getIDRHargaDiskon());
+        _holder.price.setText(_dealitems.getIDRHarga());
+        _holder.price.setPaintFlags(_holder.price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
     }
 
     @Override

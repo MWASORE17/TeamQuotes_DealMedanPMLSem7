@@ -46,6 +46,10 @@
                 android:id="@+id/menuPayConfirm"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Konfirmasi Pembayaran" />
+            <item
+                android:id="@+id/menuInvoice"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Invoice" />
         </menu>
     </item>
 

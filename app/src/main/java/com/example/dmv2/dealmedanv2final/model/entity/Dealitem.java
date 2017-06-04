@@ -3,6 +3,8 @@ package com.example.dmv2.dealmedanv2final.model.entity;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import static com.example.dmv2.dealmedanv2final.view.activity.ParentActivity.getIDRCurrency;
+
 /**
  * Created by CM on 5/29/2017.
  */
@@ -46,8 +48,15 @@ public class Dealitem {
     public double getHarga() {
         return this.harga;
     }
+    public String getIDRHarga() {
+        return  getIDRCurrency(this.harga);
+    }
     public double getHargaDiskon() {
-        return this.harga - (this.getHarga() * this.diskon);
+        double dblDiskon = Double.parseDouble(String.valueOf(this.diskon)) / 100;
+        return this.harga - (this.harga * dblDiskon);
+    }
+    public String getIDRHargaDiskon() {
+        return  getIDRCurrency(getHargaDiskon());
     }
     public int getDiskon() {
         return this.diskon;
