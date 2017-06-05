@@ -78,7 +78,7 @@ public class MainActivity extends ParentActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        //initiate data for topup
+        //initiate data dummy
         DummyData.initDataTopup();
         DummyData.initDataDealItem();
 

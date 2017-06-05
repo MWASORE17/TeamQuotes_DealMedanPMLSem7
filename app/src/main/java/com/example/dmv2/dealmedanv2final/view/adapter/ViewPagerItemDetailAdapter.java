@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.dmv2.dealmedanv2final.view.fragment.DealItemFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
@@ -22,7 +21,7 @@ public class ViewPagerItemDetailAdapter extends FragmentPagerAdapter {
     public ViewPagerItemDetailAdapter(FragmentManager fm) {
         super(fm);
         this.addFragment(new InvoiceFragment(), "INFO");
-        this.addFragment(new PayConfirmFragment(), "CONDITION");
+        this.addFragment(new TopupFragment(), "CONDITION");
     }
 
     private void addFragment(Fragment fr, String st) {

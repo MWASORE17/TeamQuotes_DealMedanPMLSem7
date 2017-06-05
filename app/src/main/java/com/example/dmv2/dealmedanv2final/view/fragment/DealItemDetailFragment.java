@@ -36,11 +36,13 @@ public class DealItemDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View _view = inflater.inflate(R.layout.fragment_dealitem_detail, container, false);
 
-        tabLayout = (TabLayout) _view.findViewById(R.id.tabs);
-        viewPager = (ViewPager) _view.findViewById(R.id.viewPager);
+        tabLayout = (TabLayout) _view.findViewById(R.id.tabs_detail);
+        viewPager = (ViewPager) _view.findViewById(R.id.viewPager_detail);
         this.init();
+
         return _view;
     }
+
     private void init(){
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
