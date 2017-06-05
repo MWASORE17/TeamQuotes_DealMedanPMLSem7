@@ -22,7 +22,7 @@ public class DealItemFragment extends Fragment {
     
 
     public DealItemFragment() {
-        // YA
+        // Required empty public constructor
     }
 
     public static DealItemFragment newInstance(){

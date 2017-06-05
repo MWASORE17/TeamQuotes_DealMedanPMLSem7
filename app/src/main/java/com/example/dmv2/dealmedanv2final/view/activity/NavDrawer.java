@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.DealItemDetailFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
@@ -111,6 +112,9 @@ public class NavDrawer extends ParentActivity
         } else if (id == R.id.menuInvoice) {
             this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
             changefragment(new InvoiceFragment());
+        } else if (id == R.id.menuItemDetail) {
+            this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
+            changefragment(new DealItemDetailFragment());
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

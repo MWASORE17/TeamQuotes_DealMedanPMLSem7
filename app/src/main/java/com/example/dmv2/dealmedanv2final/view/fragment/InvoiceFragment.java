@@ -17,6 +17,10 @@ public class InvoiceFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static InvoiceFragment newInstance(){
+        return new InvoiceFragment();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.example.dmv2.dealmedanv2final.R;
 
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.DealItemDetailFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.HomeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
@@ -134,6 +135,9 @@ public class MainActivity extends ParentActivity {
                         } else if (id == R.id.menuInvoice) {
                             changefragment(new InvoiceFragment());
                             setTitle("Invoice");
+                        } else if (id == R.id.menuItemDetail) {
+                            changefragment(new DealItemDetailFragment());
+                            setTitle("Item Detail");
                         }
 
                         int size = nav.getMenu().getItem(nav.getMenu().size()-1).getSubMenu().size();
