@@ -14,6 +14,7 @@ import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
 import com.example.dmv2.dealmedanv2final.model.entity.User;
 import com.example.dmv2.dealmedanv2final.view.activity.DealItemDetailActivity;
+import com.example.dmv2.dealmedanv2final.view.activity.SubMainActivity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,9 +26,11 @@ import java.util.List;
 
 public class DealItemRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Dealitem> dealitems;
+
     public List<Dealitem> getDealitems() {
         return dealitems;
     }
+
     public void setDealitems(List<Dealitem> dealitems) {
         this.dealitems = dealitems;
     }
@@ -40,27 +43,27 @@ public class DealItemRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View _view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dealitem_linear, parent, false);
         return new ItemDealItemHolder(_view);
-//        return null;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         final DealItemRVAdapter.ItemDealItemHolder _holder = (DealItemRVAdapter.ItemDealItemHolder) holder;
-        final Dealitem _dealitems = this.dealitems.get(position);
-        _holder.name.setText(_dealitems.getNama());
-        _holder.tempat.setText(_dealitems.getTempat());
-        _holder.stock.setText(String.valueOf(_dealitems.getStock()));
-        _holder.diskon.setText(_dealitems.getIDRHargaDiskon());
-        _holder.price.setText(_dealitems.getIDRHarga());
+        final Dealitem _dealitem = this.dealitems.get(position);
+
+        _holder.name.setText(_dealitem.getNama());
+        _holder.tempat.setText(_dealitem.getTempat());
+        _holder.stock.setText(String.valueOf(_dealitem.getStock()));
+        _holder.diskon.setText(_dealitem.getIDRHargaDiskon());
+        _holder.price.setText(_dealitem.getIDRHarga());
         _holder.price.setPaintFlags(_holder.price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
         _holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                Intent _intent = new Intent(v.getContext(), DealItemDetailActivity.class);
-                _intent.putExtra("dealitem", _dealitems);
+                Intent _intent = new Intent(v.getContext(), SubMainActivity.class);
+                _intent.putExtra("fragmentName", "dealItemDetail");
+                _intent.putExtra("dealitem", _dealitem);
                 v.getContext().startActivity(_intent);
-               // v.getContext().startActivity(_intent);
             }
         });
     }

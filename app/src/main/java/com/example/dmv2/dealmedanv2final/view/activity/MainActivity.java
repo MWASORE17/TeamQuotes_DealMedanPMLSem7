@@ -29,9 +29,6 @@ public class MainActivity extends ParentActivity {
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle mToggle;
 
-//    private TabLayout tabLayout;
-//    private ViewPager viewPager;
-
     private Toolbar toolbar;
     private MenuItem temp_item;
 
@@ -57,12 +54,6 @@ public class MainActivity extends ParentActivity {
         };
         _thread.start();
 
-//        Toast.makeText(this, "21", Toast.LENGTH_SHORT).show();
-
-//        toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-
         //ToggleMenu and nav drawer
         mDraw = (DrawerLayout) findViewById(R.id.drawer_layout);
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
@@ -83,11 +74,6 @@ public class MainActivity extends ParentActivity {
         DummyData.initDataDealItem();
 
         this.changefragment(new HomeFragment());
-        setTitle("Deals");
-
-//        tabLayout = (TabLayout) findViewById(R.id.tabs);
-//        viewPager = (ViewPager) findViewById(R.id.viewPager);
-//        this.init();
     }
 
     /*
@@ -156,17 +142,5 @@ public class MainActivity extends ParentActivity {
     public void changefragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.activity_main, fragment).commit();
     }
-
-//    private void init(){
-//        setupViewPager(viewPager);
-//        tabLayout.setupWithViewPager(viewPager);
-//    }
-//
-//    private void setupViewPager(final ViewPager viewPager) {
-//        ViewPagerHomeAdapter viewPagerAdapter = new ViewPagerHomeAdapter(getSupportFragmentManager());
-//        viewPager.setAdapter(viewPagerAdapter);
-//        tabLayout.setupWithViewPager(viewPager);
-//    }
-
 
 }

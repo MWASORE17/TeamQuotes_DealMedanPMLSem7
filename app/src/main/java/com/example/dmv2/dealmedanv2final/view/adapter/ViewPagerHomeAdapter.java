@@ -16,13 +16,11 @@ import java.util.ArrayList;
 public class ViewPagerHomeAdapter extends FragmentPagerAdapter {
         private ArrayList<Fragment> ArrFrag = new ArrayList<>();
         private ArrayList<String> title = new ArrayList<>();
-//    final Context context;
 
         public ViewPagerHomeAdapter(FragmentManager fm) {
             super(fm);
-//        this.context = context;
-            this.addFragment(new DealItemFragment(), "Linear");
-            this.addFragment(new TopupFragment(), "Top Up");
+            this.addFragment(new DealItemFragment(), "All Deals");
+            this.addFragment(new TopupFragment(), "Voucher Makan");
         }
 
         private void addFragment(Fragment fr, String st) {
@@ -34,6 +32,7 @@ public class ViewPagerHomeAdapter extends FragmentPagerAdapter {
         public Fragment getItem(int position) {
             return ArrFrag.get(position);
         }
+
         @Override
         public CharSequence getPageTitle(int position) {
             return title.get(position);

@@ -1,5 +1,7 @@
 package com.example.dmv2.dealmedanv2final.view.fragment;
 
+import android.annotation.SuppressLint;
+import android.graphics.Paint;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,12 +11,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
 import com.example.dmv2.dealmedanv2final.view.adapter.DealItemRVAdapter;
 import com.example.dmv2.dealmedanv2final.view.adapter.ViewPagerHomeAdapter;
 import com.example.dmv2.dealmedanv2final.view.adapter.ViewPagerItemDetailAdapter;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by Adlin on 05/06/2017.
@@ -24,8 +29,21 @@ public class DealItemDetailFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
+    private TextView
+            name,
+            discount,
+            stock,
+            price,
+            price_disc;
+
+    private Dealitem dealitem;
+
     public DealItemDetailFragment() {
         // Required empty public constructor
+    }
+
+    public DealItemDetailFragment(Dealitem item) {
+        dealitem = item;
     }
 
     public static DealItemDetailFragment newInstance(){
@@ -38,7 +56,16 @@ public class DealItemDetailFragment extends Fragment {
 
         tabLayout = (TabLayout) _view.findViewById(R.id.tabs_detail);
         viewPager = (ViewPager) _view.findViewById(R.id.viewPager_detail);
-        this.init();
+
+        name = (TextView) _view.findViewById(R.id.item_detail_name);
+        discount = (TextView) _view.findViewById(R.id.item_detail_discount);
+        stock = (TextView) _view.findViewById(R.id.item_detail_stock);
+        price = (TextView) _view.findViewById(R.id.item_detail_price);
+        price_disc = (TextView) _view.findViewById(R.id.item_detail_disc_price);
+
+        //this.init();
+
+        this.setContent();
 
         return _view;
     }
@@ -52,5 +79,14 @@ public class DealItemDetailFragment extends Fragment {
         ViewPagerItemDetailAdapter viewPagerAdapter = new ViewPagerItemDetailAdapter(getFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    private void setContent(){
+        name.setText(dealitem.getNama());
+        discount.setText(String.valueOf(dealitem.getDiskon() + " %"));
+        stock.setText(String.valueOf(dealitem.getStock()));
+        price_disc.setText(dealitem.getIDRHargaDiskon());
+        price.setText(dealitem.getIDRHarga());
+        price.setPaintFlags(price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
     }
 }

@@ -26,6 +26,7 @@ public class HomeFragment extends Fragment {
         tabLayout = (TabLayout) _view.findViewById(R.id.tabs);
         viewPager = (ViewPager) _view.findViewById(R.id.viewPager);
         this.init();
+
         return _view;
     }
     private void init(){
