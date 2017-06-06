@@ -1,5 +1,6 @@
 package com.example.dmv2.dealmedanv2final.model.entity;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -9,16 +10,14 @@ import static com.example.dmv2.dealmedanv2final.view.activity.ParentActivity.get
  * Created by CM on 5/29/2017.
  */
 
-public class Dealitem {
+public class Dealitem implements Serializable{
     private int id, diskon, stock;
     private String nama, tempat, image, info, hl, code;
     private double harga;
     private Date date_start, date_expired;
     public static int _id = 1;
     public static ArrayList<Dealitem> dealitems = new ArrayList<>();
-    public Dealitem() {
 
-    }
     public Dealitem(String nama, String tempat,  double harga, int diskon, String image, String info, String hl, int stock, String code) {
     //public Dealitem(String nama, String tempat,  double harga, int diskon, String image, String info, String hl, int stock, Date date_start, Date date_expired, String code) {
         this.id = _id;

@@ -35,4 +35,6 @@ public class ParentActivity extends AppCompatActivity {
 
         return String.format("%s", kursIndonesia.format(value));
     }
+
+
 }

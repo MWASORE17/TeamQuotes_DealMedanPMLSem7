@@ -1,6 +1,8 @@
 package com.example.dmv2.dealmedanv2final.view.adapter;
 
+import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +13,9 @@ import android.widget.TextView;
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
 import com.example.dmv2.dealmedanv2final.model.entity.User;
+import com.example.dmv2.dealmedanv2final.view.activity.DealItemDetailActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +53,16 @@ public class DealItemRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         _holder.diskon.setText(_dealitems.getIDRHargaDiskon());
         _holder.price.setText(_dealitems.getIDRHarga());
         _holder.price.setPaintFlags(_holder.price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+        _holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                Intent _intent = new Intent(v.getContext(), DealItemDetailActivity.class);
+                _intent.putExtra("dealitem", _dealitems);
+                v.getContext().startActivity(_intent);
+               // v.getContext().startActivity(_intent);
+            }
+        });
     }
 
     @Override
