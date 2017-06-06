@@ -39,10 +39,11 @@ public class DummyData {
     }
 
     public static void initDataDealItem() {
-        Dealitem a = new Dealitem("nama satu", "tempat satu", 50000, 20, "image", "info satu", "hl1", 26, "afssd");
-        Dealitem b = new Dealitem("nama dua", "tempat dua", 680000, 35, "image", "info dua", "hl1", 26, "sdfsd");
-        Dealitem c = new Dealitem("nama tiga", "tempat tiga", 2010000, 25, "image", "info tiga", "hl1", 26, "awewfsd");
-        Dealitem d = new Dealitem("nama empat", "tempat empat", 130000, 20, "image", "info empat", "hl1", 26, "sdfsdf42");
+        //Dealitem (nama, tempat, harga, diskon, image, String info, hl, stock, code)
+        Dealitem a = new Dealitem("nama satu", "tempat satu", 50000, 20, "image", "info satu", "hl1", 26, "1");
+        Dealitem b = new Dealitem("nama dua", "tempat dua", 680000, 35, "image", "info dua", "hl1", 26, "2");
+        Dealitem c = new Dealitem("nama tiga", "tempat tiga", 2010000, 25, "image", "info tiga", "hl1", 26, "3");
+        Dealitem d = new Dealitem("nama empat", "tempat empat", 130000, 20, "image", "info empat", "hl1", 26, "4");
         dealitems.add(a);
         dealitems.add(b);
         dealitems.add(c);

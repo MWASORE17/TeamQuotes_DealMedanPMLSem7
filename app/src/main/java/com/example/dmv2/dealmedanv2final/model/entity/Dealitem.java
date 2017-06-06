@@ -18,7 +18,10 @@ public class Dealitem implements Serializable{
     public static int _id = 1;
     public static ArrayList<Dealitem> dealitems = new ArrayList<>();
 
-    public Dealitem(String nama, String tempat,  double harga, int diskon, String image, String info, String hl, int stock, String code) {
+    public Dealitem(String nama, String tempat,
+                    double harga, int diskon,
+                    String image, String info,
+                    String hl, int stock, String code) {
     //public Dealitem(String nama, String tempat,  double harga, int diskon, String image, String info, String hl, int stock, Date date_start, Date date_expired, String code) {
         this.id = _id;
         this.nama = nama;
@@ -66,7 +69,7 @@ public class Dealitem implements Serializable{
     public String getInfo() {
         return this.info;
     }
-    public String hl() {
+    public String getHl() {
         return this.hl;
     }
     public int getStock() {

@@ -63,7 +63,7 @@ public class DealItemDetailFragment extends Fragment {
         price = (TextView) _view.findViewById(R.id.item_detail_price);
         price_disc = (TextView) _view.findViewById(R.id.item_detail_disc_price);
 
-        //this.init();
+        this.init();
 
         this.setContent();
 
@@ -76,7 +76,7 @@ public class DealItemDetailFragment extends Fragment {
     }
 
     private void setupViewPager(final ViewPager viewPager) {
-        ViewPagerItemDetailAdapter viewPagerAdapter = new ViewPagerItemDetailAdapter(getFragmentManager());
+        ViewPagerItemDetailAdapter viewPagerAdapter = new ViewPagerItemDetailAdapter(getFragmentManager(),dealitem);
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
