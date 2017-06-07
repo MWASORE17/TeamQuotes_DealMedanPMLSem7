@@ -112,9 +112,6 @@ public class NavDrawer extends ParentActivity
         } else if (id == R.id.menuInvoice) {
             this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
             changefragment(new InvoiceFragment());
-        } else if (id == R.id.menuItemDetail) {
-            this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
-            changefragment(new DealItemDetailFragment());
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

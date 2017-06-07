@@ -1,6 +1,7 @@
 package com.example.dmv2.dealmedanv2final.view.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -20,6 +21,11 @@ public class HomeFragment extends Fragment {
     private ViewPager viewPager;
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View _view = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -29,13 +35,15 @@ public class HomeFragment extends Fragment {
 
         return _view;
     }
+
     private void init(){
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
     }
 
     private void setupViewPager(final ViewPager viewPager) {
-        ViewPagerHomeAdapter viewPagerAdapter = new ViewPagerHomeAdapter(getFragmentManager());
+        ViewPagerHomeAdapter viewPagerAdapter = new ViewPagerHomeAdapter(getChildFragmentManager());
+//        ViewPagerHomeAdapter viewPagerAdapter = new ViewPagerHomeAdapter(getFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }

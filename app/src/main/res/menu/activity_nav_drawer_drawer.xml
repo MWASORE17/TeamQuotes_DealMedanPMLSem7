@@ -50,10 +50,6 @@
                 android:id="@+id/menuInvoice"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Invoice" />
-            <item
-                android:id="@+id/menuItemDetail"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Deal Item Detail" />
         </menu>
     </item>
 

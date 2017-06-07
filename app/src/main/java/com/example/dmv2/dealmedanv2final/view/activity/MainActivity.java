@@ -99,6 +99,7 @@ public class MainActivity extends ParentActivity {
                         if (id == R.id.nav_camera) {
                             // Handle the camera action
                         } else if (id == R.id.nav_gallery) {
+                            //doChangeActivity(getApplicationContext(), SubMainActivity.class);
                             changefragment(new HomeFragment());
                             setTitle("Deals");
                         } else if (id == R.id.nav_product_deals) {
@@ -121,9 +122,6 @@ public class MainActivity extends ParentActivity {
                         } else if (id == R.id.menuInvoice) {
                             changefragment(new InvoiceFragment());
                             setTitle("Invoice");
-                        } else if (id == R.id.menuItemDetail) {
-                            changefragment(new DealItemDetailFragment());
-                            setTitle("Item Detail");
                         }
 
                         int size = nav.getMenu().getItem(nav.getMenu().size()-1).getSubMenu().size();
