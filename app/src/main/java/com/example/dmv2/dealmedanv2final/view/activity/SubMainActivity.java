@@ -1,10 +1,14 @@
 package com.example.dmv2.dealmedanv2final.view.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
@@ -40,26 +44,16 @@ public class SubMainActivity extends ParentActivity {
         if(value.equals("dealItemDetail")) {
             dealitem = (Dealitem) getIntent().getExtras().get("dealitem");
 
-            setTitle(dealitem.getNama()); // set Title Activity
+            setTitle(dealitem.getNama()); // set Title Activity with item name
 
-            final ProgressDialog progress = new ProgressDialog(this);
-            progress.setMessage("loading ...");
-            progress.show();
+            final FrameLayout fl = (FrameLayout) findViewById(R.id.progressBarFrame);
 
-            Thread _thread = new Thread() {
-                @Override
+            fl.postDelayed(new Runnable() {
                 public void run() {
-                    try {
-                        sleep(2400);
-                        progress.dismiss();
-                        changefragment(new DealItemDetailFragment(dealitem));
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    fl.setVisibility(View.GONE);
+                    changefragment(new DealItemDetailFragment(dealitem));
                 }
-            };
-            _thread.start();
-
+            }, 2100);
         }
         if(value.equals("wallet")) {
             setTitle("Wallet"); // set Title Activity

@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.view.adapter.ViewPagerHomeAdapter;
@@ -19,6 +20,16 @@ import com.example.dmv2.dealmedanv2final.view.adapter.ViewPagerHomeAdapter;
 public class HomeFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
+    int vpIndex = 0;
+
+    public HomeFragment(){
+        // required empty constructor
+    }
+
+    public HomeFragment(int selectedTabIndex){
+        vpIndex = selectedTabIndex;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,5 +57,7 @@ public class HomeFragment extends Fragment {
 //        ViewPagerHomeAdapter viewPagerAdapter = new ViewPagerHomeAdapter(getFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+
+        viewPager.setCurrentItem(vpIndex);
     }
 }

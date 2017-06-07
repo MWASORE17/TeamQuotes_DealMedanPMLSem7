@@ -37,7 +37,8 @@
 
                 android:layout_marginBottom="10dp"
                 android:text="Your Name"
-                android:textSize="21sp"
+                android:textColor="@color/primary_text"
+                android:textSize="18sp"
                 android:textStyle="bold" />
                 <RelativeLayout
                     android:layout_width="match_parent"

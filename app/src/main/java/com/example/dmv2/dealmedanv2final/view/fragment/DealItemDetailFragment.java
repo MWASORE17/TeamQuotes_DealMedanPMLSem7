@@ -11,10 +11,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
+import com.example.dmv2.dealmedanv2final.view.activity.SubMainActivity;
 import com.example.dmv2.dealmedanv2final.view.adapter.DealItemRVAdapter;
 import com.example.dmv2.dealmedanv2final.view.adapter.ViewPagerHomeAdapter;
 import com.example.dmv2.dealmedanv2final.view.adapter.ViewPagerItemDetailAdapter;

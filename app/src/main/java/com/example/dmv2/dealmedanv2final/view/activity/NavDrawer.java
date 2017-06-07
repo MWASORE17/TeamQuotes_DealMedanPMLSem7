@@ -89,13 +89,13 @@ public class NavDrawer extends ParentActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_voucher) {
 
-        } else if (id == R.id.nav_product_deals) {
+        } else if (id == R.id.nav_product) {
 //            this.changefragment(new HomeFragment());
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_fav_deals) {
 
         } else if (id == R.id.menuWallet) {
             this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
@@ -103,16 +103,16 @@ public class NavDrawer extends ParentActivity
         } else if (id == R.id.menuCheckCode) {
             this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
             changefragment(new CheckCodeFragment());
-        } else if (id == R.id.menuTopup) {
-            this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
-            changefragment(new TopupFragment());
-        } else if (id == R.id.menuPayConfirm) {
-            this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
-            changefragment(new PayConfirmFragment());
-        } else if (id == R.id.menuInvoice) {
-            this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
-            changefragment(new InvoiceFragment());
-        }
+        } //else if (id == R.id.menuTopup) {
+//            this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
+//            changefragment(new TopupFragment());
+//        } else if (id == R.id.menuPayConfirm) {
+//            this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
+//            changefragment(new PayConfirmFragment());
+//        } else if (id == R.id.menuInvoice) {
+//            this.doChangeActivity(getApplicationContext(), SubMainActivity.class);
+//            changefragment(new InvoiceFragment());
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -40,7 +40,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:text="Your Name"
-                        android:textSize="21sp"
+                        android:textColor="@color/primary_text"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <RelativeLayout
@@ -156,7 +157,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cardview_dark_background"
+        android:background="@color/dark_background"
         android:layout_gravity="bottom"
         android:gravity="top"
         android:padding="6dip">

@@ -3,20 +3,16 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_home"
             android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:id="@+id/nav_voucher"
             android:title="Voucher Deals" />
         <item
-            android:id="@+id/nav_product_deals"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:id="@+id/nav_product"
             android:title="Product Deals" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
+            android:id="@+id/nav_fav_deals"
             android:title="My Favorite Deals" />
     </group>
 
@@ -24,32 +20,20 @@
         <menu>
             <item
                 android:id="@+id/menuWallet"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_menu_wallet_black"
                 android:title="My Wallet" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="My Voucher" />
+                android:id="@+id/menuVoucher"
+                android:icon="@drawable/ic_menu_card_black"
+                android:title="My Vouchers" />
             <item
-                android:id="@+id/nav_send2"
-                android:icon="@drawable/ic_menu_send"
+                android:id="@+id/menuProduct"
+                android:icon="@drawable/ic_menu_box_black"
                 android:title="My Product" />
             <item
                 android:id="@+id/menuCheckCode"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_menu_code_black"
                 android:title="Check Code" />
-            <item
-                android:id="@+id/menuTopup"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Top Up" />
-            <item
-                android:id="@+id/menuPayConfirm"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Konfirmasi Pembayaran" />
-            <item
-                android:id="@+id/menuInvoice"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Invoice" />
         </menu>
     </item>
 

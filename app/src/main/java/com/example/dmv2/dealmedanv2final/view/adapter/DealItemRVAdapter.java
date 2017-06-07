@@ -52,6 +52,7 @@ public class DealItemRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         _holder.name.setText(_dealitem.getNama());
         _holder.tempat.setText(_dealitem.getTempat());
+        _holder.tempat.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_menu_compass, 0, 0, 0);
         _holder.stock.setText(String.valueOf(_dealitem.getStock()));
         _holder.diskon.setText(_dealitem.getIDRHargaDiskon());
         _holder.price.setText(_dealitem.getIDRHarga());

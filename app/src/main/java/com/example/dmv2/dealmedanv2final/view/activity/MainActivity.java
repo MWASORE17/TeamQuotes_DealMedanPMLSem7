@@ -1,18 +1,30 @@
 package com.example.dmv2.dealmedanv2final.view.activity;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dmv2.dealmedanv2final.R;
 
+import com.example.dmv2.dealmedanv2final.model.session.SessionManager;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
-import com.example.dmv2.dealmedanv2final.view.fragment.DealItemDetailFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.HomeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
@@ -21,6 +33,8 @@ import com.example.dmv2.dealmedanv2final.model.entity.DummyData;
 
 import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
 
+import org.w3c.dom.Text;
+
 import static java.lang.Thread.sleep;
 
 public class MainActivity extends ParentActivity {
@@ -28,6 +42,7 @@ public class MainActivity extends ParentActivity {
     private DrawerLayout mDraw;
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle mToggle;
+    private ActionBar actionBar;
 
     private Toolbar toolbar;
     private MenuItem temp_item;
@@ -62,25 +77,33 @@ public class MainActivity extends ParentActivity {
         mDraw.addDrawerListener(mToggle);
         mToggle.syncState();
 
-        //set Title App Name
-        setTitle(R.string.app_name);
-
-        // set Enabled Home Button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        //set Action Bar
+        setActionBar();
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.BLACK));
 
         //initiate data dummy
         DummyData.initDataTopup();
         DummyData.initDataDealItem();
 
+        //return HOMEFragment
         this.changefragment(new HomeFragment());
     }
 
     /*
-     * Initiate menu button event
+     * Initiate option menu
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /*
+     * Initiate option menu event
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         if(mToggle.onOptionsItemSelected(item)) {
             return true;
         }
@@ -96,16 +119,15 @@ public class MainActivity extends ParentActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem item) {
                         int id = item.getItemId();
-                        if (id == R.id.nav_camera) {
-                            // Handle the camera action
-                        } else if (id == R.id.nav_gallery) {
-                            //doChangeActivity(getApplicationContext(), SubMainActivity.class);
-                            changefragment(new HomeFragment());
-                            setTitle("Deals");
-                        } else if (id == R.id.nav_product_deals) {
+                        if (id == R.id.nav_home) {
+                            changefragment(new HomeFragment(0));
 
-                        } else if (id == R.id.nav_manage) {
+                        } else if (id == R.id.nav_voucher) {
+                            changefragment(new HomeFragment(1));
 
+                        } else if (id == R.id.nav_product) {
+
+                        } else if (id == R.id.nav_fav_deals) {
 
                         } else if (id == R.id.menuWallet) {
                             changefragment(new WalletFragment());
@@ -113,16 +135,16 @@ public class MainActivity extends ParentActivity {
                         } else if (id == R.id.menuCheckCode) {
                             changefragment(new CheckCodeFragment());
                             setTitle("Check Code");
-                        } else if (id == R.id.menuTopup) {
-                            changefragment(new TopupFragment());
-                            setTitle("Top Up");
-                        } else if (id == R.id.menuPayConfirm) {
-                            changefragment(new PayConfirmFragment());
-                            setTitle("Konfirmasi Pembayaran");
-                        } else if (id == R.id.menuInvoice) {
-                            changefragment(new InvoiceFragment());
-                            setTitle("Invoice");
-                        }
+                        } //else if (id == R.id.menuTopup) {
+//                            changefragment(new TopupFragment());
+//                            setTitle("Top Up");
+//                        } else if (id == R.id.menuPayConfirm) {
+//                            changefragment(new PayConfirmFragment());
+//                            setTitle("Konfirmasi Pembayaran");
+//                        } else if (id == R.id.menuInvoice) {
+//                            changefragment(new InvoiceFragment());
+//                            setTitle("Invoice");
+//                        }
 
                         int size = nav.getMenu().getItem(nav.getMenu().size()-1).getSubMenu().size();
                         for (int i = 0; i < size; i++) {
@@ -137,8 +159,35 @@ public class MainActivity extends ParentActivity {
         );
     }
 
+    /*
+     * OTHER
+     */
     public void changefragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.activity_main, fragment).commit();
+    }
+
+    private void setActionBar(){
+        actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_HOME);
+
+        LayoutInflater linflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View view = linflater.inflate(R.layout.toolbar_home, null);
+        TextView title = (TextView) view.findViewById(R.id.title_text);
+
+        title.setText(R.string.app_name);
+
+        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
+                ActionBar.LayoutParams.WRAP_CONTENT,
+                ActionBar.LayoutParams.WRAP_CONTENT);
+        lp.gravity = Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL;
+        view.setLayoutParams(lp);
+
+        //ActionBar.LayoutParams layout_params = new ActionBar.LayoutParams(ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.FILL_PARENT);
+        getSupportActionBar().setCustomView(view);
     }
 
 }
