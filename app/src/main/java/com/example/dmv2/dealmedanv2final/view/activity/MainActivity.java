@@ -176,9 +176,9 @@ public class MainActivity extends ParentActivity {
 
         LayoutInflater linflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View view = linflater.inflate(R.layout.toolbar_home, null);
-        TextView title = (TextView) view.findViewById(R.id.title_text);
 
-        title.setText(R.string.app_name);
+        //TextView title = (TextView) view.findViewById(R.id.title_text);
+        //title.setText(R.string.app_name);
 
         ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
                 ActionBar.LayoutParams.WRAP_CONTENT,
