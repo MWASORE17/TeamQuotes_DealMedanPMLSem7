@@ -1,5 +1,6 @@
 package com.example.dmv2.dealmedanv2final.model;
 
+import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
 import com.example.dmv2.dealmedanv2final.model.entity.Topup;
 import com.example.dmv2.dealmedanv2final.model.entity.User;
@@ -50,7 +51,7 @@ public class DummyData {
                 "Jalan Suhendar no. 213 Medan Selayang, Medan",
                 198000,
                 31,
-                "image",
+                R.drawable.ayam_penyet_ria,
                 "• Voucher seharga Rp 228.000,- nett/orang Ramadhan Buka Puasa Buffet.\n" +
                 "Harga Normal: Rp 285.000,-\n" +
                 "\n\n\n" +
@@ -78,9 +79,9 @@ public class DummyData {
             )
         );
 
-        Dealitem b = new Dealitem("nama dua", "tempat dua", 680000, 35, "image", "info dua", "hl1", 26, "2");
-        Dealitem c = new Dealitem("nama tiga", "tempat tiga", 2010000, 25, "image", "info tiga", "hl1", 26, "3");
-        Dealitem d = new Dealitem("nama empat", "tempat empat", 130000, 20, "image", "info empat", "hl1", 26, "4");
+        Dealitem b = new Dealitem("nama dua", "tempat dua", 680000, 35, R.drawable.browniesamanda, "info dua", "hl1", 26, "2");
+        Dealitem c = new Dealitem("nama tiga", "tempat tiga", 2010000, 25, R.drawable.ginzo_bento_set, "info tiga", "hl1", 26, "3");
+        Dealitem d = new Dealitem("nama empat", "tempat empat", 130000, 20, R.drawable.fountain_strawberry_waffle, "info empat", "hl1", 26, "4");
         dealitems.add(b);
         dealitems.add(c);
         dealitems.add(d);
