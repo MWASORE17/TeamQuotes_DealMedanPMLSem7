@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.dmv2.dealmedanv2final.R;
 
+import com.example.dmv2.dealmedanv2final.model.entity.User;
 import com.example.dmv2.dealmedanv2final.model.session.SessionManager;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.HomeFragment;
@@ -32,6 +33,7 @@ import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
 import com.example.dmv2.dealmedanv2final.model.entity.DummyData;
 
 import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
+import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 
@@ -84,6 +86,9 @@ public class MainActivity extends ParentActivity {
         //initiate data dummy
         DummyData.initDataTopup();
         DummyData.initDataDealItem();
+        DummyData.initDataUser();
+        this.autoLogin(new User("Kampus A", "b@mobile.id", "password"));
+
 
         //return HOMEFragment
         this.changefragment(new HomeFragment());
@@ -190,4 +195,26 @@ public class MainActivity extends ParentActivity {
         getSupportActionBar().setCustomView(view);
     }
 
+    private void autoLogin(User user) {
+
+        Boolean _isregistered = false, _ismatch = false;
+        User _user = new User();
+        for (User item : User.users) {
+            if (item.getEmail().equals(user.getEmail().toString())) {
+                if (item.getPassword().equals(user.getPassword().toString())) {
+                    _ismatch = true;
+                    _user = item;
+                }
+                _isregistered = true;
+                break;
+            }
+        }
+
+        if (_isregistered && _ismatch) {
+            SessionManager.with(getApplicationContext()).createsession(_user);
+        }
+
+        //User ULogin = SessionManager.with(getApplicationContext()).getuserloggedin();
+        //int a = 5;
+    }
 }
