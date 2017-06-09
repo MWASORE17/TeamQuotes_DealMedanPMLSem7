@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dmv2.dealmedanv2final.R;
@@ -39,6 +40,8 @@ public class DealItemDetailFragment extends Fragment {
             stock,
             price,
             price_disc;
+
+    private ImageView image;
 
     private Dealitem dealitem;
 
@@ -66,6 +69,8 @@ public class DealItemDetailFragment extends Fragment {
         stock = (TextView) _view.findViewById(R.id.item_detail_stock);
         price = (TextView) _view.findViewById(R.id.item_detail_price);
         price_disc = (TextView) _view.findViewById(R.id.item_detail_disc_price);
+        image = (ImageView) _view.findViewById(R.id.item_detail_image);
+
         this.getListener(_view, dealitem);
         this.init();
 
@@ -92,6 +97,7 @@ public class DealItemDetailFragment extends Fragment {
         price_disc.setText(dealitem.getIDRHargaDiskon());
         price.setText(dealitem.getIDRHarga());
         price.setPaintFlags(price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        image.setImageResource(dealitem.getImage());
     }
 
     private void getListener(final View v, final Dealitem _dealitem) {

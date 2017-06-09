@@ -21,8 +21,9 @@ public class Dealitem implements Serializable{
 
     public Dealitem(String nama, String tempat,
                     double harga, int diskon,
-                    int image, String info,
-                    String hl, int stock, String code) {
+                    int image, int stock, String code,
+                    Date date_start, Date date_expired,
+                    String info, String hl) {
     //public Dealitem(String nama, String tempat,  double harga, int diskon, String image, String info, String hl, int stock, Date date_start, Date date_expired, String code) {
         this.id = _id;
         this.nama = nama;
@@ -33,8 +34,8 @@ public class Dealitem implements Serializable{
         this.info = info;
         this.hl = hl;
         this.stock = stock;
-//        this.date_start = date_start;
-//        this.date_expired = date_expired;
+        this.date_start = date_start;
+        this.date_expired = date_expired;
         this.code = code;
         _id++;
     }

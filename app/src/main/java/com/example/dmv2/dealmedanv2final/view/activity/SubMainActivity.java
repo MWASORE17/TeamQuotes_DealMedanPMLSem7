@@ -32,6 +32,8 @@ public class SubMainActivity extends ParentActivity {
     private ProgressBar mprogressBar;
     private User user;
 
+    private FrameLayout fl;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,22 +44,23 @@ public class SubMainActivity extends ParentActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
         // set progress bar animation
-        mprogressBar = (ProgressBar) findViewById(R.id.circular_progress_bar);
-        ObjectAnimator anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
-        anim.setDuration(7000);
-        anim.setInterpolator(new DecelerateInterpolator());
-        anim.start();
+        //mprogressBar = (ProgressBar) findViewById(R.id.circular_progress_bar);
+        //ObjectAnimator anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
+        //anim.setDuration(7000);
+        //anim.setInterpolator(new DecelerateInterpolator());
+        //anim.start();
 
         //get variable from previous Activity
         Intent intent = getIntent();
         String value = intent.getStringExtra("fragmentName"); //if it's a string you stored.
+
+        fl = (FrameLayout) findViewById(R.id.progressBarFrame);
 
         /*
          * set fragment according fragmentName value
          */
         if(value.equals("dealItemDetail")) {
             dealitem = (Dealitem) getIntent().getExtras().get("dealitem");
-            final FrameLayout fl = (FrameLayout) findViewById(R.id.progressBarFrame);
 
             setTitle(dealitem.getNama()); // set Title Activity with item name
             fl.postDelayed(new Runnable() {
@@ -70,8 +73,6 @@ public class SubMainActivity extends ParentActivity {
             dealitem = (Dealitem) getIntent().getExtras().get("dealitem");
 
             setTitle(dealitem.getNama()); // set Title Activity with item name
-
-            final FrameLayout fl = (FrameLayout) findViewById(R.id.progressBarFrame);
             fl.postDelayed(new Runnable() {
                 public void run() {
                     fl.setVisibility(View.GONE);
@@ -105,7 +106,9 @@ public class SubMainActivity extends ParentActivity {
             case android.R.id.home:
                 //app icon in action bar clicked; goto parent activity.
                     //~NavUtils.navigateUpFromSameTask(this);
-                this.finish();
+                if(!fl.isShown()){
+                    this.finish();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
