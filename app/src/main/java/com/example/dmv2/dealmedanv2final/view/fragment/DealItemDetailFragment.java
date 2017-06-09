@@ -1,6 +1,7 @@
 package com.example.dmv2.dealmedanv2final.view.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -64,7 +66,7 @@ public class DealItemDetailFragment extends Fragment {
         stock = (TextView) _view.findViewById(R.id.item_detail_stock);
         price = (TextView) _view.findViewById(R.id.item_detail_price);
         price_disc = (TextView) _view.findViewById(R.id.item_detail_disc_price);
-
+        this.getListener(_view, dealitem);
         this.init();
 
         this.setContent();
@@ -90,5 +92,19 @@ public class DealItemDetailFragment extends Fragment {
         price_disc.setText(dealitem.getIDRHargaDiskon());
         price.setText(dealitem.getIDRHarga());
         price.setPaintFlags(price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+    }
+
+    private void getListener(final View v, final Dealitem _dealitem) {
+        Button btn_beli = (Button) v.findViewById(R.id.button_dec);
+        btn_beli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v_) {
+                Intent _intent = new Intent(v.getContext(), SubMainActivity.class);
+                _intent.putExtra("fragmentName", "InvoiceByPass");
+                _intent.putExtra("dealitem", _dealitem);
+                v.getContext().startActivity(_intent);
+
+            }
+        });
     }
 }

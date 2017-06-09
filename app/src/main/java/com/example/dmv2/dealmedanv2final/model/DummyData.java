@@ -15,7 +15,7 @@ import static com.example.dmv2.dealmedanv2final.model.entity.User.*;
  */
 
 public class DummyData {
-    public void initDataUser(){
+    public static void initDataUser(){
         User a = new User("STMIK - Mikroskil Medan", "a@mobile.id", "password");
         User b = new User("Kampus A", "b@mobile.id", "password");
         User c = new User("Kampus B", "c@mobile.id", "password");

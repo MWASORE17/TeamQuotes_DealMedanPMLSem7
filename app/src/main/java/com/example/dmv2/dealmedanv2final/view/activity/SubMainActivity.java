@@ -15,8 +15,10 @@ import android.widget.ProgressBar;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
+import com.example.dmv2.dealmedanv2final.model.entity.User;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.DealItemDetailFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
 
@@ -28,6 +30,7 @@ public class SubMainActivity extends ParentActivity {
 
     private Dealitem dealitem;
     private ProgressBar mprogressBar;
+    private User user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,9 +65,20 @@ public class SubMainActivity extends ParentActivity {
                     fl.setVisibility(View.GONE);
                     changefragment(new DealItemDetailFragment(dealitem));
                 }
-            }, 2700);
-        }
-        if(value.equals("wallet")) {
+            }, 2100);
+        } else if(value.equals("InvoiceByPass")) {
+            dealitem = (Dealitem) getIntent().getExtras().get("dealitem");
+
+            setTitle(dealitem.getNama()); // set Title Activity with item name
+
+            final FrameLayout fl = (FrameLayout) findViewById(R.id.progressBarFrame);
+            fl.postDelayed(new Runnable() {
+                public void run() {
+                    fl.setVisibility(View.GONE);
+                    changefragment(new InvoiceFragment(dealitem));
+                }
+            }, 2100);
+        } else if(value.equals("wallet")) {
             setTitle("Wallet"); // set Title Activity
             this.changefragment(new WalletFragment());
         }
@@ -73,6 +87,10 @@ public class SubMainActivity extends ParentActivity {
             this.changefragment(new CheckCodeFragment());
         }
         else if(value.equals("topup")) {
+            setTitle("Top Up"); // set Title Activity
+            this.changefragment(new TopupFragment());
+        }
+        else if(value.equals("payment")) {
             setTitle("Top Up"); // set Title Activity
             this.changefragment(new TopupFragment());
         }
