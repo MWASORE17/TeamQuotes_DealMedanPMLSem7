@@ -1,4 +1,8 @@
-package com.example.dmv2.dealmedanv2final.model.entity;
+package com.example.dmv2.dealmedanv2final.model;
+
+import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
+import com.example.dmv2.dealmedanv2final.model.entity.Topup;
+import com.example.dmv2.dealmedanv2final.model.entity.User;
 
 import java.util.Date;
 
@@ -40,11 +44,43 @@ public class DummyData {
 
     public static void initDataDealItem() {
         //Dealitem (nama, tempat, harga, diskon, image, String info, hl, stock, code)
-        Dealitem a = new Dealitem("nama satu", "tempat satu", 50000, 20, "image", "info satu", "hl1", 26, "1");
+        dealitems.add(
+            new Dealitem(
+                "Ayam Penyet Ria",
+                "Jalan Suhendar no. 213 Medan Selayang, Medan",
+                198000,
+                31,
+                "image",
+                "• Voucher seharga Rp 228.000,- nett/orang Ramadhan Buka Puasa Buffet.\n" +
+                "Harga Normal: Rp 285.000,-\n" +
+                "\n\n\n" +
+                "• Voucher seharga Rp 208.000,- nett/orang Ramadhan Buka Puasa Buffet ( Untuk Pembelian 10 pax )\n" +
+                "Harga Normal: Rp 285.000,-\n" +
+                "\n\n\n" +
+                "• Voucher seharga Rp 198.000,- nett/orang Ramadhan Buka Puasa Buffet ( Untuk Pembelian 20 pax )\n" +
+                "Harga Normal: Rp 285.000,-\n" +
+                "\n\n" +
+                "Note :\n" +
+                "\n" +
+                "Diwajibkan menghubungi Marriott Cafe JW Marriott Hotel Medan terlebih dahulu sebelum melakukan transaksi untuk mengetahui status ketersediaan tempat di nomor 061 - 4553 333.\n" +
+                "\n\n" +
+                "Konfirmasi pembayaran akhir paling lambat hari Selasa tanggal 20 Juni 2017",
+                "Tahun ini Marriott Café menggelar prasmanan Iftar termewah dan terbesar di kota Medan dengan lebih dari 10 \"live cooking station\" yang lezat dengan tema Alladine's Magic Carpet. Rasakan masakan otentik dari seluruh dunia seperti Turki, Jepang, Singapura, India, Cina, Spanyol, Italia, dan Indonesia yang dimasak oleh chef - chef professional.\n" +
+                "\n" +
+                "Cocok disantap bersama keluarga, sahabat atau teman kantor.\n" +
+                "Beragam masakan sudah termasuk Appetizer, Main Course, Soup, Drink and dessert.\n" +
+                "Tema Buffet makanan “Around the World”\n" +
+                "Disajikan fresh oleh Chef Profesional.\n" +
+                "\n\n" +
+                "Voucher berlaku mulai dari tanggal 29 Mei 2017 s/d 24 Juni 2017.",
+                26,
+                "1"
+            )
+        );
+
         Dealitem b = new Dealitem("nama dua", "tempat dua", 680000, 35, "image", "info dua", "hl1", 26, "2");
         Dealitem c = new Dealitem("nama tiga", "tempat tiga", 2010000, 25, "image", "info tiga", "hl1", 26, "3");
         Dealitem d = new Dealitem("nama empat", "tempat empat", 130000, 20, "image", "info empat", "hl1", 26, "4");
-        dealitems.add(a);
         dealitems.add(b);
         dealitems.add(c);
         dealitems.add(d);

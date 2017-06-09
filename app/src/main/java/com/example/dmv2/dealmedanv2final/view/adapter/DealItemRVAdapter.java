@@ -2,23 +2,20 @@ package com.example.dmv2.dealmedanv2final.view.adapter;
 
 import android.content.Intent;
 import android.graphics.Paint;
-import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
-import com.example.dmv2.dealmedanv2final.model.entity.User;
-import com.example.dmv2.dealmedanv2final.view.activity.DealItemDetailActivity;
 import com.example.dmv2.dealmedanv2final.view.activity.SubMainActivity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.dmv2.dealmedanv2final.view.activity.ParentActivity.doEllipsize;
 
 /**
  * Created by CM on 6/2/2017.
@@ -51,7 +48,7 @@ public class DealItemRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         final Dealitem _dealitem = this.dealitems.get(position);
 
         _holder.name.setText(_dealitem.getNama());
-        _holder.tempat.setText(_dealitem.getTempat());
+        _holder.tempat.setText(doEllipsize(_dealitem.getTempat(),28,0));
         _holder.tempat.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_menu_compass, 0, 0, 0);
         _holder.stock.setText(String.valueOf(_dealitem.getStock()));
         _holder.diskon.setText(_dealitem.getIDRHargaDiskon());
