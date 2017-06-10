@@ -71,7 +71,7 @@ public class DummyData {
                                 "Voucher berlaku mulai dari tanggal 29 Mei 2017 s/d 24 Juni 2017."
                         )
         );
-        dealitems.add( new Dealitem("Brownies Cokelat original","Brownies Amanda", 45000, 20, R.drawable.ayam_penyet_ria,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),"",""));
+        dealitems.add( new Dealitem("Brownies Cokelat original","Brownies Amanda", 45000, 20, R.drawable.browniesamanda,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),"",""));
         dealitems.add( new Dealitem("Chinese Red Crab (2 Org)","Red Capit", 150000, 15, R.drawable.chinese_red_crab,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),"",""));
         dealitems.add( new Dealitem("Dimsum Packet 5 person","Nelayan Sun Plaza", 250000, 25, R.drawable.dimsum_packet_5person,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),"",""));
         dealitems.add( new Dealitem("Strawberry Waffle","Fountain Ice Cream Medan Fair", 20000, 10, R.drawable.fountain_strawberry_waffle,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),"",""));

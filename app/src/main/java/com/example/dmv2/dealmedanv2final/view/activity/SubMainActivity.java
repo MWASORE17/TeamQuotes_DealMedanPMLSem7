@@ -71,14 +71,14 @@ public class SubMainActivity extends ParentActivity {
             }, 2100);
         } else if(value.equals("InvoiceByPass")) {
             dealitem = (Dealitem) getIntent().getExtras().get("dealitem");
+            fl.setVisibility(View.GONE);
 
-            setTitle(dealitem.getNama()); // set Title Activity with item name
+            setTitle("Invoice Order"); // set Title Activity
             fl.postDelayed(new Runnable() {
                 public void run() {
-                    fl.setVisibility(View.GONE);
                     changefragment(new InvoiceFragment(dealitem));
                 }
-            }, 2100);
+            }, 500);
         } else if(value.equals("wallet")) {
             setTitle("Wallet"); // set Title Activity
             this.changefragment(new WalletFragment());

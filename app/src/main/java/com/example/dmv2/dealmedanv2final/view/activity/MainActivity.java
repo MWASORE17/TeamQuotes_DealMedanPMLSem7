@@ -42,7 +42,7 @@ public class MainActivity extends ParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //show progress Dialog. dismiss for 3s
+        //show progress Dialog. dismiss for 2s
         final ProgressDialog progress = new ProgressDialog(this);
         progress.setMessage("Loading ...");
         progress.show();
@@ -125,9 +125,11 @@ public class MainActivity extends ParentActivity {
                         } else if (id == R.id.menuWallet) {
                             changefragment(new WalletFragment());
                             setTitle("My Wallet");
+
                         } else if (id == R.id.menuCheckCode) {
                             changefragment(new CheckCodeFragment());
                             setTitle("Check Code");
+
                         } //else if (id == R.id.menuTopup) {
 //                            changefragment(new TopupFragment());
 //                            setTitle("Top Up");

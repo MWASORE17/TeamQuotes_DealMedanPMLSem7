@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rsb="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/your_dialog_root_element"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="40dp"
+    android:background="@android:color/white">
+
+
+    <!--<SeekBar-->
+        <!--android:id="@+id/dialog_seekbar"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="20dp"-->
+        <!--&gt;-->
+    <!--</SeekBar>-->
+
+    <com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar
+        android:id="@+id/rangeSeekbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        rsb:absoluteMaxValue="100"
+        rsb:absoluteMinValue="0" />
+
+    <Button
+        android:id="@+id/filter_dialog_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Filter"
+        >
+    </Button>
+
+</LinearLayout>

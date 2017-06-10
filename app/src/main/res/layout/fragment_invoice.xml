@@ -6,7 +6,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -184,7 +183,6 @@
                     android:paddingBottom="10dp"
                     >
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -255,9 +253,6 @@
 
                     </LinearLayout>
 
-
-
-
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -270,6 +265,8 @@
             android:layout_below="@+id/linearLayout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@color/primary_dark"
             android:text="Konfirmasi Pembayaran"
             android:textColor="@color/primary_light" />
@@ -281,6 +278,8 @@
             android:layout_below="@+id/button"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@color/primary_dark"
             android:text="Batalkan Transaksi"
             android:textColor="@color/primary_light" />
