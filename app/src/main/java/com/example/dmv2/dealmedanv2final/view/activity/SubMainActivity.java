@@ -12,12 +12,17 @@ import android.widget.FrameLayout;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
+import com.example.dmv2.dealmedanv2final.model.entity.Order;
+import com.example.dmv2.dealmedanv2final.model.entity.OrderDetail;
 import com.example.dmv2.dealmedanv2final.model.entity.User;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.DealItemDetailFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
+
+import java.util.List;
 
 /**
  * Created by Adlin on 23/05/2017.
@@ -26,6 +31,8 @@ import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
 public class SubMainActivity extends ParentActivity {
 
     private Dealitem dealitem;
+    private Order order;
+    private List<OrderDetail> orderDetails;
     private User user;
 
     @Override
@@ -67,6 +74,19 @@ public class SubMainActivity extends ParentActivity {
                 public void run() {
                     fl.setVisibility(View.GONE);
                     changefragment(new InvoiceFragment(dealitem));
+                }
+            }, 2100);
+        } else if(value.equals("ConfirmByPass")) {
+            order = (Order) getIntent().getExtras().get("order");
+            orderDetails = (List<OrderDetail>) getIntent().getExtras().get("order_detail");
+
+            setTitle("Konfirmasi"); // set Title Activity with item name
+
+            final FrameLayout fl = (FrameLayout) findViewById(R.id.progressBarFrame);
+            fl.postDelayed(new Runnable() {
+                public void run() {
+                    fl.setVisibility(View.GONE);
+                    changefragment(new PayConfirmFragment(order, orderDetails));
                 }
             }, 2100);
         } else if(value.equals("wallet")) {

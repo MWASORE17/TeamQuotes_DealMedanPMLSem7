@@ -24,7 +24,7 @@ public class DummyData {
         User j = new User("j", "j@mobile.id", "password");
         User k = new User("k", "k@mobile.id", "password");
         User l = new User("l", "l@mobile.id", "password");
-        users.add(b);
+        users.add(a);
         users.add(b);
         users.add(c);
         users.add(d);

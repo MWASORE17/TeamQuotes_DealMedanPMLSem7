@@ -9,13 +9,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dmv2.dealmedanv2final.R;
+import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
+import com.example.dmv2.dealmedanv2final.model.entity.Order;
+import com.example.dmv2.dealmedanv2final.model.entity.OrderDetail;
+import com.example.dmv2.dealmedanv2final.model.entity.User;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PayConfirmFragment extends Fragment {
+    private Order order;
+    private List<OrderDetail> orderDetails;
+//    private User user_logged;
+//    private Context ct;
 
-    public PayConfirmFragment() {
+    private User user_logged;
+    public PayConfirmFragment(Order order, List<OrderDetail> orderDetails) {
+        this.order = order;
+        this.orderDetails = orderDetails;
+        int a = 6;
         // Required empty public constructor
     }
 
