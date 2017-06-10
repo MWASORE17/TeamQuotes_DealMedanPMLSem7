@@ -1,5 +1,6 @@
 package com.example.dmv2.dealmedanv2final.view.activity;
 
+import android.animation.ObjectAnimator;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +9,9 @@ import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
@@ -33,6 +36,7 @@ public class SubMainActivity extends ParentActivity {
     private Dealitem dealitem;
     private Order order;
     private List<OrderDetail> orderDetails;
+    private ProgressBar mprogressBar;
     private User user;
 
     @Override
@@ -44,6 +48,13 @@ public class SubMainActivity extends ParentActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        // set progress bar animation
+        mprogressBar = (ProgressBar) findViewById(R.id.circular_progress_bar);
+        ObjectAnimator anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
+        anim.setDuration(7000);
+        anim.setInterpolator(new DecelerateInterpolator());
+        anim.start();
+
         //get variable from previous Activity
         Intent intent = getIntent();
         String value = intent.getStringExtra("fragmentName"); //if it's a string you stored.
@@ -53,11 +64,9 @@ public class SubMainActivity extends ParentActivity {
          */
         if(value.equals("dealItemDetail")) {
             dealitem = (Dealitem) getIntent().getExtras().get("dealitem");
-
-            setTitle(dealitem.getNama()); // set Title Activity with item name
-
             final FrameLayout fl = (FrameLayout) findViewById(R.id.progressBarFrame);
 
+            setTitle(dealitem.getNama()); // set Title Activity with item name
             fl.postDelayed(new Runnable() {
                 public void run() {
                     fl.setVisibility(View.GONE);

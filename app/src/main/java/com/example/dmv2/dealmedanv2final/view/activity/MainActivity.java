@@ -13,13 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.dmv2.dealmedanv2final.R;
 
@@ -27,15 +22,8 @@ import com.example.dmv2.dealmedanv2final.model.entity.User;
 import com.example.dmv2.dealmedanv2final.model.session.SessionManager;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.HomeFragment;
-import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
-import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
-import com.example.dmv2.dealmedanv2final.model.entity.DummyData;
-
-import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
-import com.google.gson.Gson;
-
-import org.w3c.dom.Text;
+import com.example.dmv2.dealmedanv2final.model.DummyData;
 
 import static java.lang.Thread.sleep;
 
@@ -62,7 +50,7 @@ public class MainActivity extends ParentActivity {
             @Override
             public void run() {
                 try {
-                    sleep(3000);
+                    sleep(2000);
                     progress.dismiss();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

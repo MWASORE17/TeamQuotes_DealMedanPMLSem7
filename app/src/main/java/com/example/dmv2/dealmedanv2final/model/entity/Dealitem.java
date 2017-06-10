@@ -12,15 +12,16 @@ import static com.example.dmv2.dealmedanv2final.view.activity.ParentActivity.get
 
 public class Dealitem implements Serializable{
     private int id, diskon, stock;
-    private String nama, tempat, image, info, hl, code;
+    private String nama, tempat, info, hl, code;
     private double harga;
     private Date date_start, date_expired;
     public static int _id = 1;
+    public int image;
     public static ArrayList<Dealitem> dealitems = new ArrayList<>();
 
     public Dealitem(String nama, String tempat,
                     double harga, int diskon,
-                    String image, String info,
+                    int image, String info,
                     String hl, int stock, String code) {
     //public Dealitem(String nama, String tempat,  double harga, int diskon, String image, String info, String hl, int stock, Date date_start, Date date_expired, String code) {
         this.id = _id;
@@ -63,7 +64,7 @@ public class Dealitem implements Serializable{
     public int getDiskon() {
         return this.diskon;
     }
-    public String getImage() {
+    public int getImage() {
         return this.image;
     }
     public String getInfo() {
