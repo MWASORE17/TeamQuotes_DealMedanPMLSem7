@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/dealName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:paddingBottom="5dp"
+        />
+    <TextView
+        android:id="@+id/dealPlace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="alamat"
+        android:paddingBottom="5dp"
+        />
+    <TextView
+        android:id="@+id/dealQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="quantity" />
+</LinearLayout>

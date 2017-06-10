@@ -15,12 +15,17 @@ import android.widget.ProgressBar;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
+import com.example.dmv2.dealmedanv2final.model.entity.Order;
+import com.example.dmv2.dealmedanv2final.model.entity.OrderDetail;
 import com.example.dmv2.dealmedanv2final.model.entity.User;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.DealItemDetailFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
+
+import java.util.List;
 
 /**
  * Created by Adlin on 23/05/2017.
@@ -29,6 +34,8 @@ import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
 public class SubMainActivity extends ParentActivity {
 
     private Dealitem dealitem;
+    private Order order;
+    private List<OrderDetail> orderDetails;
     private ProgressBar mprogressBar;
     private User user;
 
@@ -73,12 +80,25 @@ public class SubMainActivity extends ParentActivity {
             dealitem = (Dealitem) getIntent().getExtras().get("dealitem");
             fl.setVisibility(View.GONE);
 
-            setTitle("Invoice Order"); // set Title Activity
+            setTitle("Informasi Pemesanan"); // set Title Activity
             fl.postDelayed(new Runnable() {
                 public void run() {
                     changefragment(new InvoiceFragment(dealitem));
                 }
-            }, 500);
+            }, 400);
+        } else if(value.equals("ConfirmByPass")) {
+            order = (Order) getIntent().getExtras().get("order");
+            orderDetails = (List<OrderDetail>) getIntent().getExtras().get("order_detail");
+            fl.setVisibility(View.GONE);
+
+            setTitle("Konfirmasi"); // set Title Activity
+
+            final FrameLayout fl = (FrameLayout) findViewById(R.id.progressBarFrame);
+            fl.postDelayed(new Runnable() {
+                public void run() {
+                    changefragment(new PayConfirmFragment(order, orderDetails));
+                }
+            }, 400);
         } else if(value.equals("wallet")) {
             setTitle("Wallet"); // set Title Activity
             this.changefragment(new WalletFragment());
