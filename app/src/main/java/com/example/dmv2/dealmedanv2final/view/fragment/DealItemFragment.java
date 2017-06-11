@@ -72,16 +72,12 @@ public class DealItemFragment extends Fragment {
 
                 final Object[] preMin = {-1};
                 final Object[] preMax = {-1};
+                ArrayList<Double> arrHarga = Dealitem.getCollectHarga();
+
                 Button btnFilter = (Button) alertDialog.findViewById(R.id.filter_dialog_button);
                 RangeSeekBar rangeSeekbar = (RangeSeekBar) alertDialog.findViewById(R.id.rangeSeekbar);
 
-                ArrayList<Double> arrHarga = Dealitem.getCollectHarga();
-
-
-
-                RangeSeekBar<Double> seekBar = new RangeSeekBar<Double>(v.getContext());
-                rangeSeekbar.setNotifyWhileDragging(true);
-                seekBar.setRangeValues(Collections.<Double>min(arrHarga),Collections.<Double>max(arrHarga));
+                rangeSeekbar.setRangeValues(Collections.<Double>min(arrHarga),Collections.<Double>max(arrHarga));
                 rangeSeekbar.setNotifyWhileDragging(true);
 
                 rangeSeekbar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener() {
@@ -91,7 +87,6 @@ public class DealItemFragment extends Fragment {
                         preMax[0] = maxValue;
                     }
                 });
-
 
                 btnFilter.setOnClickListener(new View.OnClickListener() {
                     @Override
