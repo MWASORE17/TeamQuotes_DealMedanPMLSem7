@@ -26,7 +26,8 @@
             android:text="Rp.0 "
             android:textAlignment="center"
             android:textColor="@color/primary_dark"
-            android:textSize="35dp" />
+            android:textSize="35dp"
+            android:id="@+id/wallet_number"/>
 
         <View
             android:id="@+id/separator"
@@ -46,7 +47,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnSubmit"
+            android:id="@+id/btn_wallet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primary_dark"

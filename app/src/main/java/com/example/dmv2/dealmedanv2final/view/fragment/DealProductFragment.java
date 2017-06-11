@@ -1,11 +1,7 @@
 package com.example.dmv2.dealmedanv2final.view.fragment;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,30 +17,25 @@ import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
 import com.example.dmv2.dealmedanv2final.view.adapter.DealItemRVAdapter;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 /**
  * Created by CM on 6/2/2017.
  */
 
-public class DealItemFragment extends Fragment {
+public class DealProductFragment extends Fragment {
     private DealItemRVAdapter adapter;
     private RecyclerView rv;
     private Button button;
-    private String kategori;
-    private View rootView;
-    
 
-    public DealItemFragment(String kategori) {
-        this.kategori = kategori;
+    private View rootView;
+
+
+    public DealProductFragment() {
         // Required empty public constructor
     }
 
-//    public static DealItemFragment newInstance(){
-//        return new DealItemFragment();
-//    }
+    public static DealProductFragment newInstance(){
+        return new DealProductFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,18 +63,9 @@ public class DealItemFragment extends Fragment {
 
                 final Object[] preMin = {-1};
                 final Object[] preMax = {-1};
-                Button btnFilter = (Button) alertDialog.findViewById(R.id.filter_dialog_button);
+
                 RangeSeekBar rangeSeekbar = (RangeSeekBar) alertDialog.findViewById(R.id.rangeSeekbar);
-
-                ArrayList<Double> arrHarga = Dealitem.getCollectHarga();
-
-
-
-                RangeSeekBar<Double> seekBar = new RangeSeekBar<Double>(v.getContext());
                 rangeSeekbar.setNotifyWhileDragging(true);
-                seekBar.setRangeValues(Collections.<Double>min(arrHarga),Collections.<Double>max(arrHarga));
-                rangeSeekbar.setNotifyWhileDragging(true);
-
                 rangeSeekbar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener() {
                     @Override
                     public void onRangeSeekBarValuesChanged(RangeSeekBar bar, Object minValue, Object maxValue) {
@@ -92,6 +74,7 @@ public class DealItemFragment extends Fragment {
                     }
                 });
 
+                Button btnFilter = (Button) alertDialog.findViewById(R.id.filter_dialog_button);
 
                 btnFilter.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -110,16 +93,7 @@ public class DealItemFragment extends Fragment {
     private void init(){
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        if (this.kategori.equals("all")) {
-            adapter.setDealitems(Dealitem.dealitems);
-        } else {
-            List<Dealitem> dl = new ArrayList<>();
-            for (Dealitem dealitem_item : Dealitem.dealitems) {
-                if (dealitem_item.getKategori().equals(this.kategori))
-                    dl.add(dealitem_item);
-            }
-            adapter.setDealitems(dl);
-        }
+        adapter.setDealitems(Dealitem.dealitems);
         rv.setAdapter(adapter);
     }
 }
