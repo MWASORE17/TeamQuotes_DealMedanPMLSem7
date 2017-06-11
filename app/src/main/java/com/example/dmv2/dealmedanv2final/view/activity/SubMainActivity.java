@@ -99,6 +99,36 @@ public class SubMainActivity extends ParentActivity {
                     changefragment(new PayConfirmFragment(order, orderDetails));
                 }
             }, 400);
+        } else if(value.equals("TopupPassing")) {
+//            order = (Order) getIntent().getExtras().get("order");
+//            orderDetails = (List<OrderDetail>) getIntent().getExtras().get("order_detail");
+
+            setTitle("Topup"); // set Title Activity with item name
+
+            final FrameLayout fl = (FrameLayout) findViewById(R.id.progressBarFrame);
+            fl.postDelayed(new Runnable() {
+                public void run() {
+                    fl.setVisibility(View.GONE);
+                    changefragment(new TopupFragment());
+                }
+            }, 400);
+        } else if(value.equals("ToptoInvoice")) {
+            double harga_topup =  (Double) getIntent().getExtras().get("harga_topup");
+            final Dealitem dealitem = new Dealitem("TOP UP", "MegaDeal", harga_topup, 0, 0, 0, null, null, null, null, null);
+            dealitem.dealitems.add(dealitem);
+//            final Dealitem dealitem = null;
+//            order = (Order) getIntent().getExtras().get("order");
+//            orderDetails = (List<OrderDetail>) getIntent().getExtras().get("order_detail");
+
+            setTitle("Invoice"); // set Title Activity with item name
+
+            final FrameLayout fl = (FrameLayout) findViewById(R.id.progressBarFrame);
+            fl.postDelayed(new Runnable() {
+                public void run() {
+                    fl.setVisibility(View.GONE);
+                    changefragment(new InvoiceFragment(dealitem));
+                }
+            }, 2100);
         } else if(value.equals("wallet")) {
             setTitle("Wallet"); // set Title Activity
             this.changefragment(new WalletFragment());

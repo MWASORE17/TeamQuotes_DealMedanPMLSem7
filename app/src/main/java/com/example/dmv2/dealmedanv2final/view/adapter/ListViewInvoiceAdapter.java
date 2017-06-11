@@ -29,15 +29,16 @@ public class ListViewInvoiceAdapter extends ArrayAdapter<OrderDetail>{
     @Override
     public View getView(int position, View _v, ViewGroup parent) {
         OrderDetail orderDetail = getItem(position);
-        for(Dealitem item : this.dealitem.dealitems) {
+        for(Dealitem item : this.   dealitem.dealitems) {
             if(item.getId()==orderDetail.getDeal_id()) {
                 dealitem_temp = item;
+                break;
             }
         }
         if (_v == null) {
             _v = LayoutInflater.from(getContext()).inflate(R.layout.item_orderdetail_linear, parent, false);
         }
-        TextView dealName = (TextView) _v.findViewById(R.id.dealName);
+        TextView dealName   = (TextView) _v.findViewById(R.id.dealName);
         TextView dealPlace = (TextView) _v.findViewById(R.id.dealPlace);
         TextView dealQuantity = (TextView) _v.findViewById(R.id.dealQuantity);
 

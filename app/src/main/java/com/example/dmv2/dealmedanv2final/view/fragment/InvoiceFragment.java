@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
@@ -25,8 +26,11 @@ import com.example.dmv2.dealmedanv2final.view.adapter.ListViewInvoiceAdapter;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Struct;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 
 public class InvoiceFragment extends Fragment {
@@ -39,6 +43,12 @@ public class InvoiceFragment extends Fragment {
     private ArrayList<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
     private OrderDetail orderdetail_temp;
     private ListView listView_invoice;
+    private int ConfirmCode;
+    private String SalesCode;
+    private SimpleDateFormat datenow;
+    private SimpleDateFormat datenow_invoice;
+    private Calendar cal = Calendar.getInstance();
+
 
 
 //    private Struct
@@ -64,8 +74,12 @@ public class InvoiceFragment extends Fragment {
         user_logged = SessionManager.with(getContext()).getuserloggedin();
 
         int a = 6;
-        this.addOrder(_view);
-        this.initDisplay(_view);
+        if(this.dealitem!=null) {
+            this.addOrder(_view);
+            this.initDisplay(_view);
+        } else {
+            this.orderDetails = null;
+        }
         this.getListener(_view, this.order, this.orderDetails);
         return _view;
     }
@@ -89,21 +103,23 @@ public class InvoiceFragment extends Fragment {
         int user_id = user_logged.getId();
         int tipe = 1;
         //1 == Quantity
-        double total = dealitem.getHarga();
+        double total = dealitem.getHargaDiskon();
         Date date_start = null;
         Date date_expired = null;
-        String code = null;
+        String code = String.valueOf(this.ConfirmCode);
         int status = 0;
         int payment_method_id = 1;
-        Order query_order = new Order(tipe, user_id, total, status, payment_method_id, date_start, date_expired, code);
+        Order query_order = new Order(tipe, user_id, total, status, payment_method_id, date_start, date_expired,  String.valueOf(this.getConfirmCode()), null);
         this.order = query_order;
+        this.getKodeSales(this.order.getId());
+        query_order.setSalesId(this.SalesCode);
         this.order.orders.add(query_order);
 
         //ADD ORDER_DETAIL
         int order_id = order.getId();
         int deal_id = dealitem.getId();
         int quantity = 1;
-        double subtotal = dealitem.getHarga()*quantity;
+        double subtotal = (dealitem.getHargaDiskon()*quantity);
 
         OrderDetail query_orderDetail = new OrderDetail(order_id,deal_id,quantity,subtotal);
         OrderDetail.orders_detail.add(query_orderDetail);
@@ -123,7 +139,35 @@ public class InvoiceFragment extends Fragment {
         //Harga
         TextView harga = (TextView) v.findViewById(R.id.hargatotal);
         harga.setText(this.order.getTotalIdr());
+        //KodeSales
+        TextView saleid = (TextView) v.findViewById(R.id.getSalesID);
+        saleid.setText(this.SalesCode);
+
+        TextView date = (TextView) v.findViewById(R.id.getDateOrder);
+        this.datenow_invoice = new SimpleDateFormat("dd MMMM yyyy");
+        date.setText(this.datenow_invoice.format(cal.getTime()));
+
+        TextView confirmcode = (TextView) v.findViewById(R.id.getCodeConfirm);
+        confirmcode.setText(String.valueOf(this.ConfirmCode));
+
         int c = 6;
 
     }
+
+    private String getKodeSales(int orderID) {
+//        Toast.makeText(getActivity(), formattedDate,Toast.LENGTH_LONG).show();
+
+        this.datenow = new SimpleDateFormat("yyyyMMdd");
+        String datenows = this.datenow.format(cal.getTime());
+        return this.SalesCode = (datenows+String.valueOf(this.ConfirmCode)+"-"+String.valueOf(orderID));
+    }
+
+    private int getConfirmCode() {
+        Random rand = new Random();
+        int ConfirmCode = rand.nextInt(4000-1000 + 1) + 1000;
+        this.ConfirmCode = ConfirmCode;
+
+        return ConfirmCode;
+    }
+
 }
