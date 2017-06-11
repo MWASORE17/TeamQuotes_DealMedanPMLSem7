@@ -44,6 +44,9 @@
         <activity
             android:name=".view.activity.DealItemDetailActivity">
         </activity>
+        <activity
+            android:name=".view.activity.SecondActivity">
+        </activity>
     </application>
 
 </manifest>

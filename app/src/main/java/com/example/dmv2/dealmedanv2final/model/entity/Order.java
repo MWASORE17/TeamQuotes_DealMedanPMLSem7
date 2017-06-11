@@ -11,12 +11,13 @@ import static com.example.dmv2.dealmedanv2final.view.activity.ParentActivity.get
  */
 
 public class Order implements Serializable{
-    private int id, tipe, user_id, quantity, status, payment_method_id;
+    private int id, tipe, user_id, payment_method_id;
     private String code, sales_id;
 //    private String nama, image, info, hl, code;
     private double total;
     private Date date_start, date_expired;
-    public static int _id = 1;
+    private static int _id = 1;
+    private static int status, quantity;
     public static ArrayList<Order> orders= new ArrayList<>();
     public Order(int tipe, int user_id, double total, int status, int payment_method_id, Date date_start, Date date_expired, String code, String sales_id) {
         this.id = _id;
@@ -61,5 +62,12 @@ public class Order implements Serializable{
     }
     public void setSalesId(String kode) {
         this.sales_id = kode;
+    }
+    public void setStatus(int val) {this.status = val;}
+    public String getSalesId() {
+        return this.sales_id;
+    }
+    public String getCodeConfirm() {
+        return this.code;
     }
 }

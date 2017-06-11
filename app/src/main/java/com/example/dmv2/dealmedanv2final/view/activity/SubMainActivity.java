@@ -20,6 +20,7 @@ import com.example.dmv2.dealmedanv2final.model.entity.OrderDetail;
 import com.example.dmv2.dealmedanv2final.model.entity.User;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.DealItemDetailFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.HomeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
@@ -66,7 +67,15 @@ public class SubMainActivity extends ParentActivity {
         /*
          * set fragment according fragmentName value
          */
-        if(value.equals("dealItemDetail")) {
+        if(value.equals("home")) {
+            fl.postDelayed(new Runnable() {
+                public void run() {
+                    fl.setVisibility(View.GONE);
+                    changefragment(new HomeFragment());
+                }
+            }, 2100);
+        }
+        else if(value.equals("dealItemDetail")) {
             dealitem = (Dealitem) getIntent().getExtras().get("dealitem");
 
             setTitle(dealitem.getNama()); // set Title Activity with item name
@@ -114,7 +123,7 @@ public class SubMainActivity extends ParentActivity {
             }, 400);
         } else if(value.equals("ToptoInvoice")) {
             double harga_topup =  (Double) getIntent().getExtras().get("harga_topup");
-            final Dealitem dealitem = new Dealitem("TOP UP", "MegaDeal", harga_topup, 0, 0, 0, null, null, null, null, null);
+            final Dealitem dealitem = new Dealitem("TOP UP", "MegaDeal", harga_topup, 0, 0, 0, null, null, null, null, null, "topup");
             dealitem.dealitems.add(dealitem);
 //            final Dealitem dealitem = null;
 //            order = (Order) getIntent().getExtras().get("order");

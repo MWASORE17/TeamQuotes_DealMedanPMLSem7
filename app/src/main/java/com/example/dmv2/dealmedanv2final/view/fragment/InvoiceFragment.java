@@ -101,7 +101,8 @@ public class InvoiceFragment extends Fragment {
 
     private void addOrder(View v) {
         int user_id = user_logged.getId();
-        int tipe = 1;
+        int tipe;
+        tipe = (dealitem.getKategori().equals("topup")) ? 0 : 1;
         //1 == Quantity
         double total = dealitem.getHargaDiskon();
         Date date_start = null;
@@ -113,6 +114,7 @@ public class InvoiceFragment extends Fragment {
         this.order = query_order;
         this.getKodeSales(this.order.getId());
         query_order.setSalesId(this.SalesCode);
+        dealitem.setName(this.SalesCode);
         this.order.orders.add(query_order);
 
         //ADD ORDER_DETAIL

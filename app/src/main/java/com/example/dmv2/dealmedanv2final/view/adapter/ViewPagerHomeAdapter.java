@@ -20,8 +20,9 @@ public class ViewPagerHomeAdapter extends FragmentPagerAdapter {
 
         public ViewPagerHomeAdapter(FragmentManager fm) {
             super(fm);
-            this.addFragment(new DealItemFragment(), "Voucher Makan");
-            this.addFragment(new DealProductFragment(), "Voucher Product");
+            this.addFragment(new DealItemFragment("all"), "All Deals");
+            this.addFragment(new DealItemFragment("makan"), "Voucher Makan");
+            this.addFragment(new DealItemFragment("barang"), "Voucher Produk");
         }
 
         private void addFragment(Fragment fr, String st) {

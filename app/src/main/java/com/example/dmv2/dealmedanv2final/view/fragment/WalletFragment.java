@@ -7,8 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.dmv2.dealmedanv2final.R;
+import com.example.dmv2.dealmedanv2final.model.entity.User;
+import com.example.dmv2.dealmedanv2final.model.session.SessionManager;
 import com.example.dmv2.dealmedanv2final.view.activity.SubMainActivity;
 
 /**
@@ -17,6 +20,7 @@ import com.example.dmv2.dealmedanv2final.view.activity.SubMainActivity;
 
 public class WalletFragment extends Fragment {
 
+    private User user_logged;
     public WalletFragment(){
         // Required empty public constructor
     }
@@ -26,8 +30,9 @@ public class WalletFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View _view = inflater.inflate(R.layout.fragment_wallet, container, false);
+        this.user_logged = SessionManager.with(getContext()).getuserloggedin();
         /* initiate & instantiate */
-
+        this.initDisplay(_view);
         this.getListener(_view);
         /* setting */
         return _view;
@@ -44,5 +49,10 @@ public class WalletFragment extends Fragment {
 
             }
         });
+    }
+
+    private void initDisplay(View v) {
+        TextView wallet= (TextView) v.findViewById(R.id.wallet_number);
+        wallet.setText(this.user_logged.getIDRWallet());
     }
 }

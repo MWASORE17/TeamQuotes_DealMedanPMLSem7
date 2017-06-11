@@ -1,7 +1,7 @@
 package com.example.dmv2.dealmedanv2final.model.entity;
 
 import java.util.ArrayList;
-
+import static com.example.dmv2.dealmedanv2final.view.activity.ParentActivity.getIDRCurrency;
 /**
  * Created by CM on 4/30/2017.
  */
@@ -12,6 +12,7 @@ public class User {
     private String email;
     private String bio;
     private String password;
+    private static double wallet;
 
     public static int _id = 1;
 
@@ -19,10 +20,11 @@ public class User {
 
     public User() {}
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, double wallet) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.wallet = wallet;
         this.id = _id;
         _id++;
     }
@@ -47,6 +49,28 @@ public class User {
         this.email = email;
     }
 
+    public void addWallet(double val) {
+        this.wallet += val;
+    }
+
+    public void subWallet(double val) {
+        this.wallet -= val;
+    }
+
+    public boolean validating_zero(double val) {
+        if((this.wallet-val)<0) {
+            return true;
+        }
+        return false;
+    }
+
+    public double getWallet() {
+        return this.wallet;
+    }
+
+    public String getIDRWallet() {
+        return getIDRCurrency(this.getWallet());
+    }
 
     public String getBio() {
         return bio;

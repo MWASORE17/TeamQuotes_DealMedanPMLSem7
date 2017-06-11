@@ -11,19 +11,20 @@ import static com.example.dmv2.dealmedanv2final.view.activity.ParentActivity.get
  */
 
 public class Dealitem implements Serializable{
-    private int id, diskon, stock;
-    private String nama, tempat, info, hl, code;
+    private int id, diskon;
+    private String nama, tempat, info, hl, code, kategori;
     private double harga;
     private Date date_start, date_expired;
     public static int _id = 1;
     public int image;
+    private int stock;
     public static ArrayList<Dealitem> dealitems = new ArrayList<>();
 
     public Dealitem(String nama, String tempat,
                     double harga, int diskon,
                     int image, int stock, String code,
                     Date date_start, Date date_expired,
-                    String info, String hl) {
+                    String info, String hl, String kategori) {
     //public Dealitem(String nama, String tempat,  double harga, int diskon, String image, String info, String hl, int stock, Date date_start, Date date_expired, String code) {
         this.id = _id;
         this.nama = nama;
@@ -37,6 +38,7 @@ public class Dealitem implements Serializable{
         this.date_start = date_start;
         this.date_expired = date_expired;
         this.code = code;
+        this.kategori = kategori;
         _id++;
     }
 
@@ -77,12 +79,15 @@ public class Dealitem implements Serializable{
     public int getStock() {
         return this.stock;
     }
+    public void subStock(int val) { this.stock-= val;}
     public Date getDate_expired() {
         return this.date_expired;
     }
     public Date getDate_start() {
         return this.date_start;
     }
+    public String getKategori() {return this.kategori;}
+    public void setName(String name) {this.nama = name;}
 
 
 }

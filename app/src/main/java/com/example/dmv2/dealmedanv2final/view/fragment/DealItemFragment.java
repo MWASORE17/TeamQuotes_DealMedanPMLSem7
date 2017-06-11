@@ -25,6 +25,9 @@ import com.example.dmv2.dealmedanv2final.view.activity.SubMainActivity;
 import com.example.dmv2.dealmedanv2final.view.adapter.DealItemRVAdapter;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by CM on 6/2/2017.
  */
@@ -33,17 +36,18 @@ public class DealItemFragment extends Fragment {
     private DealItemRVAdapter adapter;
     private RecyclerView rv;
     private Button button;
-
+    private String kategori;
     private View rootView;
     
 
-    public DealItemFragment() {
+    public DealItemFragment(String kategori) {
+        this.kategori = kategori;
         // Required empty public constructor
     }
 
-    public static DealItemFragment newInstance(){
-        return new DealItemFragment();
-    }
+//    public static DealItemFragment newInstance(){
+//        return new DealItemFragment();
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -101,7 +105,16 @@ public class DealItemFragment extends Fragment {
     private void init(){
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter.setDealitems(Dealitem.dealitems);
+        if (this.kategori.equals("all")) {
+            adapter.setDealitems(Dealitem.dealitems);
+        } else {
+            List<Dealitem> dl = new ArrayList<>();
+            for (Dealitem dealitem_item : Dealitem.dealitems) {
+                if (dealitem_item.getKategori().equals(this.kategori))
+                    dl.add(dealitem_item);
+            }
+            adapter.setDealitems(dl);
+        }
         rv.setAdapter(adapter);
     }
 }
