@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.dmv2.dealmedanv2final.view.fragment.DealItemFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.DealProductFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
 
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ public class ViewPagerHomeAdapter extends FragmentPagerAdapter {
 
         public ViewPagerHomeAdapter(FragmentManager fm) {
             super(fm);
-            this.addFragment(new DealItemFragment(), "All Deals");
-            this.addFragment(new TopupFragment(), "Voucher Makan");
+            this.addFragment(new DealItemFragment(), "Voucher Makan");
+            this.addFragment(new DealProductFragment(), "Voucher Product");
         }
 
         private void addFragment(Fragment fr, String st) {

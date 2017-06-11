@@ -1,6 +1,7 @@
 package com.example.dmv2.dealmedanv2final.model;
 
 import com.example.dmv2.dealmedanv2final.R;
+import com.example.dmv2.dealmedanv2final.model.entity.DealProduct;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
 import com.example.dmv2.dealmedanv2final.model.entity.Topup;
 import com.example.dmv2.dealmedanv2final.model.entity.User;
@@ -8,6 +9,7 @@ import com.example.dmv2.dealmedanv2final.model.entity.User;
 import java.util.Date;
 
 import static android.R.attr.format;
+import static com.example.dmv2.dealmedanv2final.model.entity.DealProduct.dealProducts;
 import static com.example.dmv2.dealmedanv2final.model.entity.Topup.Topups;
 import static com.example.dmv2.dealmedanv2final.model.entity.Dealitem.dealitems;
 import static com.example.dmv2.dealmedanv2final.model.entity.User.*;
@@ -47,34 +49,72 @@ public class DummyData {
     public static void initDataDealItem() {
         //Dealitem (nama, tempat, harga, diskon, image, stock, code, info, hl)
         dealitems.add( new Dealitem( "Ayam Penyet Spesial","Ayam Penyet Ria", 25000, 15, R.drawable.ayam_penyet_ria, 26,"AYAMENAK",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
-                        "• Voucher seharga Rp 228.000,- nett/orang Ramadhan Buka Puasa Buffet.\n" +
-                        "Harga Normal: Rp 285.000,-\n" +
-                        "\n\n\n" +
-                        "• Voucher seharga Rp 208.000,- nett/orang Ramadhan Buka Puasa Buffet ( Untuk Pembelian 10 pax )\n" +
-                        "Harga Normal: Rp 285.000,-\n" +
-                        "\n\n\n" +
-                        "• Voucher seharga Rp 198.000,- nett/orang Ramadhan Buka Puasa Buffet ( Untuk Pembelian 20 pax )\n" +
-                        "Harga Normal: Rp 285.000,-\n" +
-                        "\n\n" +
+                        "• Voucher seharga Rp 21.250,- nett/orang Ramadhan Buka Puasa\n" +
+                        "Harga Normal: Rp 25.000,-\n" +
                         "Note :\n" +
-                        "\n" +
-                        "Diwajibkan menghubungi Marriott Cafe JW Marriott Hotel Medan terlebih dahulu sebelum melakukan transaksi untuk mengetahui status ketersediaan tempat di nomor 061 - 4553 333.\n" +
+                        "Diwajibkan untuk melakukan pemesanan 2 hari sebelumnya" +
                         "\n\n" +
-                        "Konfirmasi pembayaran akhir paling lambat hari Selasa tanggal 20 Juni 2017",
-                        "Tahun ini Marriott Café menggelar prasmanan Iftar termewah dan terbesar di kota Medan dengan lebih dari 10 \"live cooking station\" yang lezat dengan tema Alladine's Magic Carpet. Rasakan masakan otentik dari seluruh dunia seperti Turki, Jepang, Singapura, India, Cina, Spanyol, Italia, dan Indonesia yang dimasak oleh chef - chef professional.\n" +
-                                "\n" +
-                                "Cocok disantap bersama keluarga, sahabat atau teman kantor.\n" +
-                                "Beragam masakan sudah termasuk Appetizer, Main Course, Soup, Drink and dessert.\n" +
-                                "Tema Buffet makanan “Around the World”\n" +
-                                "Disajikan fresh oleh Chef Profesional.\n" +
-                                "\n\n" +
-                                "Voucher berlaku mulai dari tanggal 29 Mei 2017 s/d 24 Juni 2017."
+                        "Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017",
+                                "• Voucher berlaku Setiap hari.\n" +
+                                "• Voucher tidak berlaku untuk hari libur nasional.\n" +
+                                "• Voucher sudah termasuk tax dan service.\n" +
+                                "• Voucher hanya berlaku untuk makan ditempat.\n" +
+                                "• Voucher berlaku mulai dari tanggal 10 Juni 2017 s/d 30 Juni 2017.\n" +
+                                "• Voucher yang sudah dibeli tidak dapat direfund, diextend masa berlakunya, ditukar ataupun diuangkan."
                         )
         );
-        dealitems.add( new Dealitem("Brownies Cokelat original","Brownies Amanda", 45000, 20, R.drawable.browniesamanda,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),"",""));
-        dealitems.add( new Dealitem("Chinese Red Crab (2 Org)","Red Capit", 150000, 15, R.drawable.chinese_red_crab,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),"",""));
-        dealitems.add( new Dealitem("Dimsum Packet 5 person","Nelayan Sun Plaza", 250000, 25, R.drawable.dimsum_packet_5person,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),"",""));
-        dealitems.add( new Dealitem("Strawberry Waffle","Fountain Ice Cream Medan Fair", 20000, 10, R.drawable.fountain_strawberry_waffle,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),"",""));
+        dealitems.add( new Dealitem("Brownies Cokelat original","Brownies Amanda", 45000, 20, R.drawable.browniesamanda,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
+                "• Voucher seharga Rp 36.000,- nett\n" +
+                        "Harga Normal: Rp 45.000,-\n" +
+                        "Note :\n" +
+                        "Diwajibkan untuk melakukan pemesanan 2 hari sebelumnya" +
+                        "\n\n" +
+                        "Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017",
+                "• Voucher berlaku Setiap hari.\n" +
+                        "• Voucher tidak berlaku untuk hari libur nasional.\n" +
+                        "• Voucher sudah termasuk tax dan service.\n" +
+                        "• Voucher hanya berlaku untuk makan ditempat.\n" +
+                        "• Voucher berlaku mulai dari tanggal 10 Juni 2017 s/d 30 Juni 2017.\n" +
+                        "• Voucher yang sudah dibeli tidak dapat direfund, diextend masa berlakunya, ditukar ataupun diuangkan."));
+        dealitems.add( new Dealitem("Chinese Red Crab (2 Org)","Red Capit", 150000, 15, R.drawable.chinese_red_crab,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
+                "• Voucher seharga Rp 127.500,- nett (Paket 2 orang)\n" +
+                        "Harga Normal: Rp 150.000,-\n" +
+                        "Note :\n" +
+                        "Diwajibkan untuk melakukan pemesanan 2 hari sebelumnya" +
+                        "\n\n" +
+                        "Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017",
+                "• Voucher berlaku Setiap hari.\n" +
+                        "• Voucher tidak berlaku untuk hari libur nasional.\n" +
+                        "• Voucher sudah termasuk tax dan service.\n" +
+                        "• Voucher hanya berlaku untuk makan ditempat.\n" +
+                        "• Voucher berlaku mulai dari tanggal 10 Juni 2017 s/d 30 Juni 2017.\n" +
+                        "• Voucher yang sudah dibeli tidak dapat direfund, diextend masa berlakunya, ditukar ataupun diuangkan."));
+        dealitems.add( new Dealitem("Dimsum Packet 5 person","Nelayan Sun Plaza", 250000, 25, R.drawable.dimsum_packet_5person,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
+                "• Voucher seharga Rp 187.500,- nett (Packet 5 Orang)\n" +
+                        "Harga Normal: Rp 250.000,-\n" +
+                        "Note :\n" +
+                        "Diwajibkan untuk melakukan pemesanan 2 hari sebelumnya" +
+                        "\n\n" +
+                        "Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017",
+                "• Voucher berlaku Setiap hari.\n" +
+                        "• Voucher tidak berlaku untuk hari libur nasional.\n" +
+                        "• Voucher sudah termasuk tax dan service.\n" +
+                        "• Voucher hanya berlaku untuk makan ditempat.\n" +
+                        "• Voucher berlaku mulai dari tanggal 10 Juni 2017 s/d 30 Juni 2017.\n" +
+                        "• Voucher yang sudah dibeli tidak dapat direfund, diextend masa berlakunya, ditukar ataupun diuangkan."));
+        dealitems.add( new Dealitem("Strawberry Waffle","Fountain Ice Cream Medan Fair", 20000, 10, R.drawable.fountain_strawberry_waffle,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
+                "• Voucher seharga Rp 18.000,- nett/orang Ramadhan Buka Puasa\n" +
+                        "Harga Normal: Rp 20.000,-\n" +
+                        "Note :\n" +
+                        "Diwajibkan untuk melakukan pemesanan 2 hari sebelumnya" +
+                        "\n\n" +
+                        "Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017",
+                "• Voucher berlaku Setiap hari.\n" +
+                        "• Voucher tidak berlaku untuk hari libur nasional.\n" +
+                        "• Voucher sudah termasuk tax dan service.\n" +
+                        "• Voucher hanya berlaku untuk makan ditempat.\n" +
+                        "• Voucher berlaku mulai dari tanggal 10 Juni 2017 s/d 30 Juni 2017.\n" +
+                        "• Voucher yang sudah dibeli tidak dapat direfund, diextend masa berlakunya, ditukar ataupun diuangkan."));
 //        dealitems.add( new Dealitem("Bento Set","Ginza Resto", 25000, 15, R.drawable.ginzo_bento_set,20,"ABC","",""));
 //        dealitems.add( new Dealitem("Beef Steak","Grand Italy Resto", 80000, 15, R.drawable.grand_italy_steak,20,"ABC","",""));
 //        dealitems.add( new Dealitem("Seafood All You Can Eat","Grand Maxxim", 70000, 10, R.drawable.grand_maxxim_all_you_can_eat,20,"ABC","",""));
@@ -88,6 +128,47 @@ public class DummyData {
 
     }
 
+    public  static  void initDataDealProduct(){
+        dealProducts.add( new DealProduct("Bumper Case Iphone 6","Central Com", 50000, 10, R.drawable.bumper_case_iphone_,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
+
+                "• 1 Pc Bumper Case Iphone 6 seharga Rp 45.000,- nett\n" +
+                        "Harga Normal: Rp 50.000,-\n" +
+                        "\n\n" +
+                        "Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017",
+                "Barang yang sudah dibeli tidak dapat ditukar atau dikembalikan, kecuali barang yang diterima dalam kondisi rusak."));
+
+        dealProducts.add( new DealProduct("Cable OTG","Central Com", 25000, 10, R.drawable.cable_otg,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
+
+                "• 1 Pc Bumper Case Iphone 6 seharga Rp 45.000,- nett\n" +
+                        "Harga Normal: Rp 50.000,-\n" +
+                        "\n\n" +
+                        "Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017",
+                "Barang yang sudah dibeli tidak dapat ditukar atau dikembalikan, kecuali barang yang diterima dalam kondisi rusak."));
+
+        dealProducts.add( new DealProduct("Fidget Spinner Glow","Super Fidget", 50000, 15, R.drawable.fidget_spinner_glow,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
+
+                "• 1 Pc Fidget Spinner Glow in the dark Rp 42.500,- nett\n" +
+                        "Harga Normal: Rp 50.000,-\n" +
+                        "\n\n" +
+                        "Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017",
+                "Barang yang sudah dibeli tidak dapat ditukar atau dikembalikan, kecuali barang yang diterima dalam kondisi rusak."));
+
+        dealProducts.add( new DealProduct("Fidget Spinner Polos","Super Fidget", 35000, 15, R.drawable.fidget_spinner_polos,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
+
+                "• 1 Pc Fidget Spinner Polos seharga Rp 29.750,- nett\n" +
+                        "Harga Normal: Rp 35.000,-\n" +
+                        "\n\n" +
+                        "Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017",
+                "Barang yang sudah dibeli tidak dapat ditukar atau dikembalikan, kecuali barang yang diterima dalam kondisi rusak."));
+
+        dealProducts.add( new DealProduct("Headset Beats","Komputer Medan", 220000, 20, R.drawable.bumper_case_iphone_,20,"ABC",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
+
+                "• 1 Pc Headset Beats seharga Rp 176.000,- nett\n" +
+                        "Harga Normal: Rp 220.000,-\n" +
+                        "\n\n" +
+                        "Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017",
+                "Barang yang sudah dibeli tidak dapat ditukar atau dikembalikan, kecuali barang yang diterima dalam kondisi rusak."));
+    }
 
 
     public static void initDataTopup(){
