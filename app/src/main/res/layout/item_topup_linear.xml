@@ -77,7 +77,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="-"
                 android:textAlignment="center"
                 android:drawableTop="@drawable/ic_remove_circle_outline_black"
                 android:paddingTop="17dp" />

@@ -23,7 +23,7 @@ public class ViewPagerItemDetailAdapter extends FragmentPagerAdapter {
     public ViewPagerItemDetailAdapter(FragmentManager fm, Dealitem dealitem) {
         super(fm);
         this.addFragment(new DealItemDetailDescFragment(dealitem.getInfo()), "INFO");
-        this.addFragment(new DealItemDetailDescFragment(dealitem.getHl()), "CONDITION");
+        this.addFragment(new DealItemDetailDescFragment(dealitem.getHl()), "HIGHLIGHT");
     }
 
     private void addFragment(Fragment fr, String st) {

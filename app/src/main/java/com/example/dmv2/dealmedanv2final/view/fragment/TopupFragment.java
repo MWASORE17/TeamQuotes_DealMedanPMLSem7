@@ -27,6 +27,8 @@ public class TopupFragment extends Fragment {
     private TopupRVAdapter adapter;
     private static TextView txt_topup_total;
 
+    private View _view;
+
     public TopupFragment(){
         // Required empty public constructor
     }
@@ -35,7 +37,7 @@ public class TopupFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View _view = inflater.inflate(R.layout.fragment_topup, container, false);
+        _view = inflater.inflate(R.layout.fragment_topup, container, false);
 
         /* initiate & instantiate */
         adapter = new TopupRVAdapter();
@@ -47,8 +49,19 @@ public class TopupFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.setTopup(Topup.Topups);
         rv.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        //int size = Topup.Topups.size();
+        //Topup.Topups.clear();
+        //adapter.notifyItemRangeRemoved(0, size);
 
         return _view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
     }
 
     public static void setTotalPrice(){

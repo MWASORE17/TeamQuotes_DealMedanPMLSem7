@@ -69,7 +69,7 @@ public class SubMainActivity extends ParentActivity {
         if(value.equals("dealItemDetail")) {
             dealitem = (Dealitem) getIntent().getExtras().get("dealitem");
 
-            setTitle(dealitem.getNama()); // set Title Activity with item name
+            setTitle(dealitem.getTempat()); // set Title Activity with item location
             fl.postDelayed(new Runnable() {
                 public void run() {
                     fl.setVisibility(View.GONE);

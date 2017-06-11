@@ -184,7 +184,6 @@ public class MainActivity extends ParentActivity {
         //ActionBar.LayoutParams layout_params = new ActionBar.LayoutParams(ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.FILL_PARENT);
         getSupportActionBar().setCustomView(view);
     }
-
     private void autoLogin(User user) {
 
         Boolean _isregistered = false, _ismatch = false;

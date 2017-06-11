@@ -10,20 +10,20 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
-import com.example.dmv2.dealmedanv2final.view.activity.MainActivity;
-import com.example.dmv2.dealmedanv2final.view.activity.SubMainActivity;
 import com.example.dmv2.dealmedanv2final.view.adapter.DealItemRVAdapter;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Created by CM on 6/2/2017.
@@ -71,9 +71,18 @@ public class DealItemFragment extends Fragment {
 
                 final Object[] preMin = {-1};
                 final Object[] preMax = {-1};
-
+                Button btnFilter = (Button) alertDialog.findViewById(R.id.filter_dialog_button);
                 RangeSeekBar rangeSeekbar = (RangeSeekBar) alertDialog.findViewById(R.id.rangeSeekbar);
+
+                ArrayList<Double> arrHarga = Dealitem.getCollectHarga();
+
+
+
+                RangeSeekBar<Double> seekBar = new RangeSeekBar<Double>(v.getContext());
                 rangeSeekbar.setNotifyWhileDragging(true);
+                seekBar.setRangeValues(Collections.<Double>min(arrHarga),Collections.<Double>max(arrHarga));
+                rangeSeekbar.setNotifyWhileDragging(true);
+
                 rangeSeekbar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener() {
                     @Override
                     public void onRangeSeekBarValuesChanged(RangeSeekBar bar, Object minValue, Object maxValue) {
@@ -82,7 +91,6 @@ public class DealItemFragment extends Fragment {
                     }
                 });
 
-                Button btnFilter = (Button) alertDialog.findViewById(R.id.filter_dialog_button);
 
                 btnFilter.setOnClickListener(new View.OnClickListener() {
                     @Override

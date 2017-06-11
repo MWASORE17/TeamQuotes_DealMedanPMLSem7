@@ -18,6 +18,8 @@ import static com.example.dmv2.dealmedanv2final.model.entity.User.*;
 
 public class DummyData {
     public static void initDataUser(){
+        if(!users.isEmpty())
+            users.clear();
         User a = new User("STMIK - Mikroskil Medan", "a@mobile.id", "password");
         User b = new User("Kampus A", "b@mobile.id", "password");
         User c = new User("Kampus B", "c@mobile.id", "password");
@@ -45,6 +47,8 @@ public class DummyData {
     }
 
     public static void initDataDealItem() {
+        if(!dealitems.isEmpty())
+            dealitems.clear();
         //Dealitem (nama, tempat, harga, diskon, image, stock, code, info, hl)
         dealitems.add( new Dealitem( "Ayam Penyet Spesial","Ayam Penyet Ria", 25000, 15, R.drawable.ayam_penyet_ria, 26,"AYAMENAK",new java.sql.Date(2017,6,6),new java.sql.Date(2017,6,2),
                         "• Voucher seharga Rp 228.000,- nett/orang Ramadhan Buka Puasa Buffet.\n" +
@@ -90,8 +94,10 @@ public class DummyData {
 
 
 
-    public static void initDataTopup(){
-
+    public static void initDataTopup()
+    {
+        if(!Topups.isEmpty())
+            Topups.clear();
         Topup a = new Topup("Top Up Package 1",100000);
         Topups.add(a);
         Topup b = new Topup("Top Up Package 2",200000);

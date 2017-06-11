@@ -8,10 +8,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:configChanges="keyboardHidden|orientation"
-        android:theme="@style/AppTheme">
+        android:theme="@style/TeamQuotes">
 
         <activity
-            android:name="com.example.dmv2.dealmedanv2final.view.activity.SplashScreen"
+            android:name=".view.activity.SplashScreen"
             android:label="@string/app_name"
             android:noHistory="true"
             android:screenOrientation="portrait">
@@ -23,24 +23,28 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".view.activity.MainActivity"
+            android:label="@string/app_name">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-        <activity android:name=".view.activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
+
         <activity
             android:name=".view.activity.NavDrawer"
             android:label="@string/title_activity_nav_drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity
             android:name=".view.activity.SubMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".view.activity.MainActivity" />
         </activity>
+
         <activity
             android:name=".view.activity.DealItemDetailActivity">
         </activity>

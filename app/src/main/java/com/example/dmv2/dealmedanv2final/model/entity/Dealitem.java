@@ -3,6 +3,8 @@ package com.example.dmv2.dealmedanv2final.model.entity;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import static com.example.dmv2.dealmedanv2final.view.activity.ParentActivity.getIDRCurrency;
 
@@ -82,6 +84,14 @@ public class Dealitem implements Serializable{
     }
     public Date getDate_start() {
         return this.date_start;
+    }
+
+    public static ArrayList<Double> getCollectHarga(){
+        ArrayList<Double> list = new ArrayList<Double>();
+        for (Dealitem d : dealitems) {
+            list.add(d.harga);
+        }
+        return list;
     }
 
 
