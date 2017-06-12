@@ -18,11 +18,11 @@ public class ViewPagerHomeAdapter extends FragmentPagerAdapter {
         private ArrayList<Fragment> ArrFrag = new ArrayList<>();
         private ArrayList<String> title = new ArrayList<>();
 
-        public ViewPagerHomeAdapter(FragmentManager fm) {
+        public ViewPagerHomeAdapter(FragmentManager fm, double hargaMin, double hargaMax) {
             super(fm);
-            this.addFragment(new DealItemFragment("all"), "All Deals");
-            this.addFragment(new DealItemFragment("makan"), "Voucher Makan");
-            this.addFragment(new DealItemFragment("barang"), "Voucher Produk");
+            this.addFragment(new DealItemFragment("all", hargaMin, hargaMax), "All Deals");
+            this.addFragment(new DealItemFragment("makan", hargaMin, hargaMax), "Voucher Makan");
+            this.addFragment(new DealItemFragment("barang", hargaMin, hargaMax), "Voucher Produk");
         }
 
         private void addFragment(Fragment fr, String st) {

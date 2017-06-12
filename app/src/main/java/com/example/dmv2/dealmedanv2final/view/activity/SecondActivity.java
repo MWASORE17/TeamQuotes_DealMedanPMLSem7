@@ -42,22 +42,22 @@ public class SecondActivity extends ParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        //show progress Dialog. dismiss for 2s
-//        final ProgressDialog progress = new ProgressDialog(this);
-//        progress.setMessage("Loading ...");
-//        progress.show();
-//        Thread _thread = new Thread() {
-//            @Override
-//            public void run() {
-//                try {
-//                    sleep(2000);
-//                    progress.dismiss();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        };
-//        _thread.start();
+        //show progress Dialog. dismiss for 1s
+        final ProgressDialog progress = new ProgressDialog(this);
+        progress.setMessage("Loading ...");
+        progress.show();
+        Thread _thread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    sleep(1000);
+                    progress.dismiss();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        _thread.start();
 
         //ToggleMenu and nav drawer
         mDraw = (DrawerLayout) findViewById(R.id.drawer_layout);

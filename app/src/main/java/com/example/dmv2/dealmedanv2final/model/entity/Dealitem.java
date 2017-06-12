@@ -99,5 +99,13 @@ public class Dealitem implements Serializable{
         return list;
     }
 
+    public static Double getMin (ArrayList<Double> list){
+        return Math.floor(Collections.<Double>min(list));
+    }
+
+    public static Double getMax (ArrayList<Double> list){
+        return Math.ceil(Collections.<Double>max(list));
+    }
+
 
 }

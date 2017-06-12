@@ -1,6 +1,7 @@
 package com.example.dmv2.dealmedanv2final.view.fragment;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,10 +15,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
+import com.example.dmv2.dealmedanv2final.view.activity.ParentActivity;
 import com.example.dmv2.dealmedanv2final.view.adapter.DealItemRVAdapter;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
@@ -35,16 +38,19 @@ public class DealItemFragment extends Fragment {
     private Button button;
     private String kategori;
     private View rootView;
+    private TextView txtNF;
+
+    double preMin;
+    double preMax;
     
 
-    public DealItemFragment(String kategori) {
+    public DealItemFragment(
+            String kategori, double hargaMin, double hargaMax
+    ) {
         this.kategori = kategori;
-        // Required empty public constructor
+        this.preMin = hargaMin;
+        this.preMax = hargaMax;
     }
-
-//    public static DealItemFragment newInstance(){
-//        return new DealItemFragment();
-//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +60,18 @@ public class DealItemFragment extends Fragment {
         adapter = new DealItemRVAdapter();
         rv = (RecyclerView) rootView.findViewById(R.id.di_asc_rv);
         button = (Button) rootView.findViewById(R.id.button_filter);
+        txtNF = (TextView) rootView.findViewById(R.id.txt_not_found);
+
+        txtNF.setText("Not Found");
+
+        final ArrayList<Double> arrHarga = Dealitem.getCollectHarga();
+        if( preMin==-1) {
+            preMin = Dealitem.getMin(arrHarga);
+            preMax = Dealitem.getMax(arrHarga);
+        }
+
+        final double tmpHargaMin = Dealitem.getMin(arrHarga);
+        final double tmpHargaMax = Dealitem.getMax(arrHarga);
 
         /* setting */
         this.init();
@@ -65,36 +83,56 @@ public class DealItemFragment extends Fragment {
 
                 LayoutInflater inflater = (LayoutInflater) v.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View layout = inflater.inflate(R.layout.filter_harga_seekbar, (ViewGroup) v.findViewById(R.id.your_dialog_root_element));
+
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext())
                         .setView(layout);
+
+                builder //.setMessage("Filter Harga")
+                        .setPositiveButton("Apply", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User OK the dialog
+                                //Toast.makeText(v.getContext(),"MinValue:" + String.valueOf(preMin) + " - " + "MaxValue:" + String.valueOf(preMax), Toast.LENGTH_LONG).show();
+                                refreshHome();
+}
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                            }
+                        });
+
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
 
-                final Object[] preMin = {-1};
-                final Object[] preMax = {-1};
-                ArrayList<Double> arrHarga = Dealitem.getCollectHarga();
+                final TextView txtMin = (TextView) alertDialog.findViewById(R.id.item_filter_min);
+                final TextView txtMax = (TextView) alertDialog.findViewById(R.id.item_filter_max);
+                final RangeSeekBar rangeSeekbar = (RangeSeekBar) alertDialog.findViewById(R.id.rangeSeekbar);
 
-                Button btnFilter = (Button) alertDialog.findViewById(R.id.filter_dialog_button);
-                RangeSeekBar rangeSeekbar = (RangeSeekBar) alertDialog.findViewById(R.id.rangeSeekbar);
+                txtMin.setText(ParentActivity.getIDRCurrency(preMin) + "+ ");
+                txtMax.setText("- " + ParentActivity.getIDRCurrency(preMax));
 
-                rangeSeekbar.setRangeValues(Collections.<Double>min(arrHarga),Collections.<Double>max(arrHarga));
-                rangeSeekbar.setNotifyWhileDragging(true);
+                rangeSeekbar.setRangeValues(tmpHargaMin,tmpHargaMax);
 
                 rangeSeekbar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener() {
                     @Override
                     public void onRangeSeekBarValuesChanged(RangeSeekBar bar, Object minValue, Object maxValue) {
-                        preMin[0] = minValue;
-                        preMax[0] = maxValue;
+                        preMin = Math.floor((double)minValue);
+                        preMax = Math.ceil((double)maxValue);
+
+                        if((double)minValue != preMin){
+                            bar.setSelectedMinValue(preMin);
+                        }
+                        if((double)maxValue != preMax){
+                            bar.setSelectedMaxValue(preMax);
+                        }
+
+                        txtMin.setText(ParentActivity.getIDRCurrency(preMin));
+                        txtMax.setText(ParentActivity.getIDRCurrency(preMax));
                     }
                 });
 
-                btnFilter.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick (View v) {
-                        Toast.makeText(v.getContext(),"MinValue:" + String.valueOf(preMin[0]) + " - " + "MaxValue:" + String.valueOf(preMax[0]), Toast.LENGTH_LONG).show();
-
-                    }
-                });
+                rangeSeekbar.setNotifyWhileDragging(true);
             }
 
         });
@@ -105,16 +143,58 @@ public class DealItemFragment extends Fragment {
     private void init(){
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        List<Dealitem> dl = new ArrayList<>();
+
+        // collect data filter by Price
+        for (Dealitem dealitem_item : Dealitem.dealitems) {
+            if (dealitem_item.getHargaDiskon() >= this.preMin && dealitem_item.getHargaDiskon() <= this.preMax)
+                dl.add(dealitem_item);
+        }
+
+
+        // collect data group by Category
         if (this.kategori.equals("all")) {
-            adapter.setDealitems(Dealitem.dealitems);
+            adapter.setDealitems(dl);
         } else {
-            List<Dealitem> dl = new ArrayList<>();
+            dl.clear();
             for (Dealitem dealitem_item : Dealitem.dealitems) {
                 if (dealitem_item.getKategori().equals(this.kategori))
                     dl.add(dealitem_item);
             }
             adapter.setDealitems(dl);
         }
+        if(dl.isEmpty())
+            txtNF.setVisibility(View.VISIBLE);
+        else
+            txtNF.setVisibility(View.GONE);
         rv.setAdapter(adapter);
+    }
+
+    public void refreshHome(){
+        //show progress Dialog. dismiss for 1s
+        final ProgressDialog progress = new ProgressDialog(getActivity());
+        progress.setMessage("Loading ...");
+        progress.show();
+        Thread _thread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    sleep(1300);
+                    progress.dismiss();
+                    changefragment(new HomeFragment(preMin, preMax));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        _thread.start();
+    }
+
+    /*
+     * OTHER
+     */
+    public void changefragment(Fragment fragment) {
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.activity_main, fragment).commit();
     }
 }

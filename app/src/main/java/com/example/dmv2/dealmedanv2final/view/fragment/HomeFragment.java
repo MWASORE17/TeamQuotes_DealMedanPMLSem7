@@ -22,6 +22,8 @@ public class HomeFragment extends Fragment {
     private ViewPager viewPager;
 
     int vpIndex = 0;
+    double hargaMin = -1;
+    double hargaMax = -1;
 
     public HomeFragment(){
         // required empty constructor
@@ -29,6 +31,11 @@ public class HomeFragment extends Fragment {
 
     public HomeFragment(int selectedTabIndex){
         vpIndex = selectedTabIndex;
+    }
+
+    public HomeFragment(double priceMin, double priceMax){
+        hargaMin = priceMin;
+        hargaMax = priceMax;
     }
 
     @Override
@@ -53,7 +60,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void setupViewPager(final ViewPager viewPager) {
-        ViewPagerHomeAdapter viewPagerAdapter = new ViewPagerHomeAdapter(getChildFragmentManager());
+        ViewPagerHomeAdapter viewPagerAdapter = new ViewPagerHomeAdapter(getChildFragmentManager(), hargaMin, hargaMax);
 //        ViewPagerHomeAdapter viewPagerAdapter = new ViewPagerHomeAdapter(getFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);

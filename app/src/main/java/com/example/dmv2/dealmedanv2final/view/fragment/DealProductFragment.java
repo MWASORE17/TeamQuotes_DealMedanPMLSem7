@@ -74,15 +74,15 @@ public class DealProductFragment extends Fragment {
                     }
                 });
 
-                Button btnFilter = (Button) alertDialog.findViewById(R.id.filter_dialog_button);
-
-                btnFilter.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick (View v) {
-                        Toast.makeText(v.getContext(),"MinValue:" + String.valueOf(preMin[0]) + " - " + "MaxValue:" + String.valueOf(preMax[0]), Toast.LENGTH_LONG).show();
-
-                    }
-                });
+//                Button btnFilter = (Button) alertDialog.findViewById(R.id.filter_dialog_button);
+//
+//                btnFilter.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick (View v) {
+//                        Toast.makeText(v.getContext(),"MinValue:" + String.valueOf(preMin[0]) + " - " + "MaxValue:" + String.valueOf(preMax[0]), Toast.LENGTH_LONG).show();
+//
+//                    }
+//                });
             }
 
         });
