@@ -330,7 +330,7 @@ public class DummyData {
                     "\n" +
                     "NB : Hasil putihnya setiap orang berbeda-beda tergantung kadar kekuningan gigi dan kerusakan enamel gigi yang diakibatkan merokok aktif dan gemar meminum kopi", "barang"));
 
-            dealitems.add( new Dealitem("Keyboard Gaming Rexus K9","MedanKomputer", 270000, 20, R.drawable.ayam_penyet_ria,20,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
+            dealitems.add( new Dealitem("Keyboard Gaming Rexus K9","MedanKomputer", 270000, 20, R.drawable.keyboard_rexus,20,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
                     ,"• 1 pc Fleecy Bangle Tea seharga Rp 70.000,- net\n" +
                     "Harga Normal: Rp 110.000,-\n" +
                     "\n" +
@@ -459,19 +459,16 @@ public class DummyData {
 
     public static void initDataTopup()
     {
-        if(Topups.isEmpty())
-            Topups.clear();
-        Topup a = new Topup("Top Up Package 1",100000);
-        Topups.add(a);
-        Topup b = new Topup("Top Up Package 2",200000);
-        Topups.add(b);
-        Topup c = new Topup("Top Up Package 3",500000);
-        Topups.add(c);
-        Topup d = new Topup("Top Up Package 4",1000000);
-        Topups.add(d);
-
-        //random
-        shuffleList(Topups);
+        if(Topups.isEmpty()) {
+            Topup a = new Topup("Top Up Package 1", 100000);
+            Topups.add(a);
+            Topup b = new Topup("Top Up Package 2", 200000);
+            Topups.add(b);
+            Topup c = new Topup("Top Up Package 3", 500000);
+            Topups.add(c);
+            Topup d = new Topup("Top Up Package 4", 1000000);
+            Topups.add(d);
+        }
     }
 
     public static void shuffleList(ArrayList A){

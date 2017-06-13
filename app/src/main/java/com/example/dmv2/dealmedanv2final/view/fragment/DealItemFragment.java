@@ -1,12 +1,9 @@
 package com.example.dmv2.dealmedanv2final.view.fragment;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
@@ -25,7 +21,6 @@ import com.example.dmv2.dealmedanv2final.view.adapter.DealItemRVAdapter;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -94,7 +89,7 @@ public class DealItemFragment extends Fragment {
                                 // User OK the dialog
                                 //Toast.makeText(v.getContext(),"MinValue:" + String.valueOf(preMin) + " - " + "MaxValue:" + String.valueOf(preMax), Toast.LENGTH_LONG).show();
                                 refreshHome();
-}
+                            }
                         })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -145,25 +140,22 @@ public class DealItemFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
         List<Dealitem> dl = new ArrayList<>();
-
-        // collect data filter by Price
-        for (Dealitem dealitem_item : Dealitem.dealitems) {
-            if (dealitem_item.getHargaDiskon() >= this.preMin && dealitem_item.getHargaDiskon() <= this.preMax)
-                dl.add(dealitem_item);
-        }
-
-
         // collect data group by Category
         if (this.kategori.equals("all")) {
+            for (Dealitem dealitem_item : Dealitem.dealitems) {
+                if (!dealitem_item.getKategori().equals("topup") && dealitem_item.getHargaDiskon() >= this.preMin && dealitem_item.getHargaDiskon() <= this.preMax)
+                    dl.add(dealitem_item);
+            }
             adapter.setDealitems(dl);
         } else {
             dl.clear();
             for (Dealitem dealitem_item : Dealitem.dealitems) {
-                if (dealitem_item.getKategori().equals(this.kategori))
+                if (dealitem_item.getKategori().equals(this.kategori) && dealitem_item.getHargaDiskon() >= this.preMin && dealitem_item.getHargaDiskon() <= this.preMax)
                     dl.add(dealitem_item);
             }
             adapter.setDealitems(dl);
         }
+
         if(dl.isEmpty())
             txtNF.setVisibility(View.VISIBLE);
         else
