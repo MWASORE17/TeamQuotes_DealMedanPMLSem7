@@ -46,7 +46,13 @@ public class HistoryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         _holder.code.setText(_order.getSalesId());
         _holder.price.setText(_order.getTotalIdr());
-        _holder.status.setText((_order.getStatus()==1 ? "COMPLETE" : "PENDING"));
+        //_holder.status.setText((_order.getStatus()==1 ? "COMPLETE" : "PENDING"));
+        if(_order.getStatus()==1)
+            _holder.status.setText("COMPLETE");
+        else if(_order.getStatus()==2)
+            _holder.status.setText("CANCELLED");
+        else
+            _holder.status.setText("PENDING");
         _holder.tipe.setText((_order.getTipe()==0 ? "Top UP" : "Product"));
 
 

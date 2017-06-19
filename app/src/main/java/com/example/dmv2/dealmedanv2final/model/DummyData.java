@@ -266,8 +266,19 @@ public class DummyData {
                 "\n" +
                 "Voucher berlaku mulai dari tanggal 10 Juni 2017 s/d 30 Juni 2017.", "makan"));
         dealitems.add( new Dealitem("Pattaya Friend Rice","Thai Resto", 25000, 10, R.drawable.pataya_land_fried_rice,20,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
-                ,""
-                ,"", "makan"));
+                ,"• 1 Pc Bumper Case Iphone 6 seharga Rp 45.000,- nett\n" +
+                "\" +\n" +
+                "                            \"Harga Normal: Rp 50.000,-\\n\" +\n" +
+                "                            \"\\n\\n\" +\n" +
+                "                            \"Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017\",\n" +
+                "                    \"Barang yan"
+                ,"• 1 Pc Bumper Case Iphone 6 seharga Rp 45.000,- nett\n" +
+                "\" +\n" +
+                "                            \"Harga Normal: Rp 50.000,-\\n\" +\n" +
+                "                            \"\\n\\n\" +\n" +
+                "                            \"Konfirmasi pembayaran akhir paling lambat hari Sabtu tanggal 24 Juni 2017\",\n" +
+                "                    \"Barang yang sudah d"
+                , "makan"));
 
 //        dealitems.add( new Dealitem("Red Lobster","Red Capit", 120000, 25, R.drawable.red_lobster,20,"ABC","",""));
 //        dealitems.add( new Dealitem("Shrimp and Beacon Packet","Chinatown Food", 75000, 22, R.drawable.shrimp_and_beacon,20,"ABC","",""));

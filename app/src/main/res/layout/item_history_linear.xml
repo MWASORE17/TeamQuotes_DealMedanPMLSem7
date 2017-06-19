@@ -58,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:orientation="vertical"
             android:paddingTop="17dp">
 
             <TextView
@@ -72,6 +73,14 @@
                 android:textColor="@color/whitess"
                 android:textSize="14dp"
                 android:textStyle="bold" />
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Lihat Pemesanan"-->
+                <!--android:textAlignment="center"-->
+                <!--android:paddingTop="5dp"-->
+                <!--android:textColor="@color/colorPrimary"/>-->
 
         </LinearLayout>
 

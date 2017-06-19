@@ -38,12 +38,10 @@ public class HistoryFragment extends Fragment {
 
         txtNF.setText("Not Found");
 
-
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.setOrders(Order.orders);
         rv.setAdapter(adapter);
-
 
         if(Order.orders.isEmpty())
             txtNF.setVisibility(View.VISIBLE);

@@ -50,21 +50,11 @@ public class InvoiceFragment extends Fragment {
     private Calendar cal = Calendar.getInstance();
 
 
-
-//    private Struct
-
     public InvoiceFragment(Dealitem item) {
         dealitem = item;
         ct = getContext();
         int a = 6;
-        // Required empty public constructor
     }
-
-
-
-//    public static InvoiceFragment newInstance(){
-//        return new InvoiceFragment();
-//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,7 +65,7 @@ public class InvoiceFragment extends Fragment {
 
         int a = 6;
         if(this.dealitem!=null) {
-            this.addOrder(_view);
+            this.addOrder();
             this.initDisplay(_view);
         } else {
             this.orderDetails = null;
@@ -85,6 +75,7 @@ public class InvoiceFragment extends Fragment {
     }
 
     private void getListener(final View v, final Order _order, final List<OrderDetail> _orderDetailList) {
+        //btn_confirm
         Button btn_confirm = (Button) v.findViewById(R.id.btn_confirm);
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,15 +85,24 @@ public class InvoiceFragment extends Fragment {
                 _intent.putExtra("order", _order);
                 _intent.putExtra("order_detail", (Serializable) _orderDetailList);
                 v.getContext().startActivity(_intent);
+            }
+        });
 
+        //btn_cancel
+        Button btn_cancel = (Button) v.findViewById(R.id.btn_cancel);
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v_) {
+                //order.orders.remove(order);
+                order.setStatus(2);
+                getActivity().finish();
             }
         });
     }
 
-    private void addOrder(View v) {
+    private void addOrder() {
         int user_id = user_logged.getId();
-        int tipe;
-        tipe = (dealitem.getKategori().equals("topup")) ? 0 : 1;
+        int tipe = (dealitem.getKategori().equals("topup")) ? 0 : 1;
         //1 == Quantity
         double total = dealitem.getHargaDiskon();
         Date date_start = null;
@@ -110,6 +110,7 @@ public class InvoiceFragment extends Fragment {
         String code = String.valueOf(this.ConfirmCode);
         int status = 0;
         int payment_method_id = 1;
+
         Order query_order = new Order(tipe, user_id, total, status, payment_method_id, date_start, date_expired,  String.valueOf(this.getConfirmCode()), null);
         this.order = query_order;
         this.getKodeSales(this.order.getId());
