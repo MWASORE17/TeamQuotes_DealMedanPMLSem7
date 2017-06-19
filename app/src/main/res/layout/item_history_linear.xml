@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -37,6 +38,7 @@
                 android:text="Type"
                 android:textColor="@color/primary_text"
                 android:textSize="18sp" />
+
             <TextView
                 android:id="@+id/item_history_linearprice"
                 android:layout_width="match_parent"
@@ -54,21 +56,21 @@
             android:id="@+id/TextLayout"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:paddingTop="17dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true">
+            android:paddingTop="17dp">
 
             <TextView
                 android:id="@+id/tem_history_linear_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/rounded_corder"
                 android:padding="15dp"
                 android:text="Status"
                 android:textAlignment="center"
                 android:textColor="@color/whitess"
-                android:textSize="20dp"
-                android:background="@drawable/rounded_corder"
+                android:textSize="14dp"
                 android:textStyle="bold" />
 
         </LinearLayout>

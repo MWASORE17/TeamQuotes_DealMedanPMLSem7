@@ -84,7 +84,7 @@ public class DummyData {
                             "• Voucher hanya berlaku untuk makan ditempat.\n" +
                             "• Voucher berlaku mulai dari tanggal 10 Juni 2017 s/d 30 Juni 2017.\n" +
                             "• Voucher yang sudah dibeli tidak dapat direfund, diextend masa berlakunya, ditukar ataupun diuangkan.", "makan"));
-            dealitems.add(new Dealitem("Chinese Red Crab (2 Org)", "Red Capit", 150000, 15, R.drawable.chinese_red_crab, 20, "ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2),
+            dealitems.add(new Dealitem("Chinese Red Crab (2 Org)", "Red Capit", 150000, 15, R.drawable.chinese_red_crab, 40, "ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2),
                     "• Voucher seharga Rp 127.500,- nett (Paket 2 orang)\n" +
                             "Harga Normal: Rp 150.000,-\n" +
                             "Note :\n" +
@@ -110,7 +110,7 @@ public class DummyData {
                             "• Voucher hanya berlaku untuk makan ditempat.\n" +
                             "• Voucher berlaku mulai dari tanggal 10 Juni 2017 s/d 30 Juni 2017.\n" +
                             "• Voucher yang sudah dibeli tidak dapat direfund, diextend masa berlakunya, ditukar ataupun diuangkan.", "makan"));
-            dealitems.add(new Dealitem("Strawberry Waffle", "Fountain Ice Cream Medan Fair", 20000, 10, R.drawable.fountain_strawberry_waffle, 20, "ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2),
+            dealitems.add(new Dealitem("Strawberry Waffle", "Fountain Ice Cream Medan Fair", 20000, 10, R.drawable.fountain_strawberry_waffle, 60, "ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2),
                     "• Voucher seharga Rp 18.000,- nett/orang Ramadhan Buka Puasa\n" +
                             "Harga Normal: Rp 20.000,-\n" +
                             "Note :\n" +
@@ -159,7 +159,7 @@ public class DummyData {
                 "\n" +
                 "Voucher berlaku mulai dari tanggal 12 Juni 2017 s/d 23 Juli 2017.", "makan"));
 
-        dealitems.add( new Dealitem("Beef Steak","Grand Italy Resto", 80000, 15, R.drawable.grand_italy_steak,20,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
+        dealitems.add( new Dealitem("Beef Steak","Grand Italy Resto", 80000, 15, R.drawable.grand_italy_steak,17,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
                 ,"•  Voucher seharga Rp 140.000,- net untuk Cake Edition Lebaran - 16 cm\n" +
                 "Harga Normal: Rp 200,000,-\n" +
                 "\n" +
@@ -189,7 +189,7 @@ public class DummyData {
                 "\n" +
                 "Voucher berlaku mulai dari tanggal 14 Juni 2017 s/d 07 Juli 2017.", "makan"));
 
-        dealitems.add( new Dealitem("Seafood All You Can Eat","Grand Maxxim", 70000, 10, R.drawable.grand_maxxim_all_you_can_eat,20,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
+        dealitems.add( new Dealitem("Seafood All You Can Eat","Grand Maxxim", 70000, 10, R.drawable.grand_maxxim_all_you_can_eat,34,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
                 ,"•  Voucher seharga Rp 42.000,- net untuk 2 Main Courses + 2 Ice tea.\n" +
                 "Harga Normal: Rp 65,000,-\n" +
                 "\n" +
@@ -213,7 +213,7 @@ public class DummyData {
                 "\n" +
                 "Voucher berlaku mulai dari tanggal 12 Juni 2017 s/d 17 Juli 2017.", "makan"));
 
-        dealitems.add( new Dealitem("June Cake Chocolate","Dulcet Cake and Pastry", 120000, 12, R.drawable.junecake,20,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
+        dealitems.add( new Dealitem("June Cake Chocolate","Dulcet Cake and Pastry", 120000, 12, R.drawable.junecake,87,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
                 ,"•  Voucher seharga Rp 18.000,- net untuk 1 Pax Ayam Penyet Kalasan Komplit.\n" +
                 "Harga Normal: Rp 26,000,-\n" +
                 "\n" +
@@ -235,7 +235,7 @@ public class DummyData {
                 " \n" +
                 "Voucher berlaku mulai dari tanggal 13 Juni 2017 s/d 05 Juli 2017.", "makan"));
 
-        dealitems.add( new Dealitem("Salt and Sour Ramen","Muramasa", 35000, 15, R.drawable.muramasa_ramen,20,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
+        dealitems.add( new Dealitem("Salt and Sour Ramen","Muramasa", 35000, 15, R.drawable.muramasa_ramen,79,"ABC", new java.sql.Date(2017, 6, 6), new java.sql.Date(2017, 6, 2)
                 ,"•  Voucher seharga Rp 35.000,- net untuk 1 Nasi Sayur + 1 Ayam Goreng/Ayam Rendang + 1 Teh Manis + Takjil Special\n" +
                 "Harga Normal: Rp 52,000,-\n" +
                 "\n" +
