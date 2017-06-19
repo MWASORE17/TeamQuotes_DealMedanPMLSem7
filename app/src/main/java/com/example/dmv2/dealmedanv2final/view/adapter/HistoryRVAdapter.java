@@ -25,8 +25,8 @@ public class HistoryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return orders;
     }
 
-    public void setDealitems(List<Order> dealitems) {
-        this.orders = dealitems;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public HistoryRVAdapter() {
@@ -44,9 +44,10 @@ public class HistoryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         final HistoryRVAdapter.ItemHistoryVH _holder = (HistoryRVAdapter.ItemHistoryVH ) holder;
         final Order _order = this.orders.get(position);
 
-        _holder.code.setText(_order.getCodeConfirm());
+        _holder.code.setText(_order.getSalesId());
         _holder.price.setText(_order.getTotalIdr());
-        _holder.status.setText(((_order.getStatus()==1 ? "COMPLETE" : "PENDING")));
+        _holder.status.setText((_order.getStatus()==1 ? "COMPLETE" : "PENDING"));
+        _holder.tipe.setText((_order.getTipe()==0 ? "Top UP" : "Product"));
 
 
 //        _holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -62,18 +63,18 @@ public class HistoryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return orders.size();
     }
 
     private class ItemHistoryVH extends RecyclerView.ViewHolder
     {
         //private ImageView image;
-        private TextView code, price, date, status;
+        private TextView code, price, tipe, status;
 
         public ItemHistoryVH(View itemView) {
             super(itemView);
             code= (TextView) itemView.findViewById(R.id.item_history_linearcode);
-            date = (TextView) itemView.findViewById(R.id.item_history_lineardate);
+            tipe = (TextView) itemView.findViewById(R.id.item_history_lineartipe);
             price = (TextView) itemView.findViewById(R.id.item_history_linearprice);
             status = (TextView) itemView.findViewById(R.id.tem_history_linear_status);
 

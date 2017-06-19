@@ -73,10 +73,11 @@ public class PayConfirmFragment extends Fragment {
                     if((ItemSaleID.equals(saleid)) && (ItemKodeConfirm.equals(kode))) {
                         if(_order.getTipe() == 0) {
                             user_logged.addWallet(_order.getTotal());
+                            order_item.setStatus(1);
                         }else {
                             if(!user_logged.validating_zero(_order.getTotal())) {
                                 user_logged.subWallet(_order.getTotal());
-                                _order.setStatus(1);
+                                order_item.setStatus(1);
                                 for (OrderDetail orderDetails_item : _orderdetails) {
                                     for(Dealitem dealitem_item : _dealitem.dealitems) {
                                         if(dealitem_item.getId()==orderDetails_item.getDeal_id()) {

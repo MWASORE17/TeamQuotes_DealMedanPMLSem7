@@ -31,10 +31,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/item_history_lineardate"
+                android:id="@+id/item_history_lineartipe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Date"
+                android:text="Type"
                 android:textColor="@color/primary_text"
                 android:textSize="18sp" />
             <TextView
@@ -63,12 +63,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:padding="15dp"
                 android:text="Status"
                 android:textAlignment="center"
                 android:textColor="@color/whitess"
-                android:textSize="28dp"
+                android:textSize="20dp"
                 android:background="@drawable/rounded_corder"
                 android:textStyle="bold" />
 

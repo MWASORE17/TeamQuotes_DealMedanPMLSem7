@@ -17,7 +17,7 @@ public class Order implements Serializable{
     private double total;
     private Date date_start, date_expired;
     private static int _id = 1;
-    private static int status, quantity;
+    private int status, quantity;
     public static ArrayList<Order> orders= new ArrayList<>();
     public Order(int tipe, int user_id, double total, int status, int payment_method_id, Date date_start, Date date_expired, String code, String sales_id) {
         this.id = _id;
