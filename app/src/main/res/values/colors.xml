@@ -11,4 +11,5 @@
     <color name="icons">#212121</color>
     <color name="divider">#BDBDBD</color>
     <color name="dark_background">#010101</color>
+    <color name="whitess">#FFFFFF</color>
 </resources>

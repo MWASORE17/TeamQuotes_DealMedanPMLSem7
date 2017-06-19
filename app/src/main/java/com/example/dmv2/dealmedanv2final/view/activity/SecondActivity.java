@@ -21,6 +21,7 @@ import com.example.dmv2.dealmedanv2final.model.DummyData;
 import com.example.dmv2.dealmedanv2final.model.entity.User;
 import com.example.dmv2.dealmedanv2final.model.session.SessionManager;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.HistoryFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.HomeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
 
@@ -112,7 +113,8 @@ public class SecondActivity extends ParentActivity {
                             changefragment(new HomeFragment(1));
 
                         } else if (id == R.id.nav_product) {
-
+                            changefragment(new HistoryFragment());
+                            setTitle("History");
                         } else if (id == R.id.nav_fav_deals) {
 
                         } else if (id == R.id.menuWallet) {

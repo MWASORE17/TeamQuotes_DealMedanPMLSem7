@@ -20,6 +20,7 @@ import com.example.dmv2.dealmedanv2final.model.entity.OrderDetail;
 import com.example.dmv2.dealmedanv2final.model.entity.User;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.DealItemDetailFragment;
+import com.example.dmv2.dealmedanv2final.view.fragment.HistoryFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.HomeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.InvoiceFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
@@ -138,7 +139,11 @@ public class SubMainActivity extends ParentActivity {
                     changefragment(new InvoiceFragment(dealitem));
                 }
             }, 2100);
-        } else if(value.equals("wallet")) {
+        } else if(value.equals("History")) {
+            setTitle("History Order"); // set Title Activity
+            this.changefragment(new HistoryFragment());
+        }
+        else if(value.equals("wallet")) {
             setTitle("Wallet"); // set Title Activity
             this.changefragment(new WalletFragment());
         }
