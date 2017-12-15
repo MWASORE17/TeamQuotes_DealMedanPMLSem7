@@ -34,9 +34,11 @@ public class MainActivity extends ParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //initiate data dummy
+        DummyData.getDealitemsRetrofit();
         DummyData.initDataTopup();
-        DummyData.initDataDealItem();
         DummyData.initDataUser();
+//        DummyData.initDataDealItem();
+
         this.autoLogin(new User("Kampus A", "b@mobile.id", "password", 0));
 
 

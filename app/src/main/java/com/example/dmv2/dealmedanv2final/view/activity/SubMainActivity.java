@@ -124,7 +124,7 @@ public class SubMainActivity extends ParentActivity {
             }, 400);
         } else if(value.equals("ToptoInvoice")) {
             double harga_topup =  (Double) getIntent().getExtras().get("harga_topup");
-            final Dealitem dealitem = new Dealitem("TOP UP", "MegaDeal", harga_topup, 0, 0, 0, null, null, null, null, null, "topup");
+            final Dealitem dealitem = new Dealitem("TOP UP", "MegaDeal", harga_topup, 0, null, 0, null, null, null, null, null, "topup");
             dealitem.dealitems.add(dealitem);
 //            final Dealitem dealitem = null;
 //            order = (Order) getIntent().getExtras().get("order");

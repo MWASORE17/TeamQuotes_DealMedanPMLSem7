@@ -5,26 +5,28 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-
 import static com.example.dmv2.dealmedanv2final.view.activity.ParentActivity.getIDRCurrency;
 
 /**
  * Created by CM on 5/29/2017.
  */
 
+
 public class Dealitem implements Serializable{
+
     private int id, diskon;
+
     private String nama, tempat, info, hl, code, kategori;
     private double harga;
     private Date date_start, date_expired;
     public static int _id = 1;
-    public int image;
+    public String image;
     private int stock;
     public static ArrayList<Dealitem> dealitems = new ArrayList<>();
 
     public Dealitem(String nama, String tempat,
                     double harga, int diskon,
-                    int image, int stock, String code,
+                    String image, int stock, String code,
                     Date date_start, Date date_expired,
                     String info, String hl, String kategori) {
     //public Dealitem(String nama, String tempat,  double harga, int diskon, String image, String info, String hl, int stock, Date date_start, Date date_expired, String code) {
@@ -69,7 +71,7 @@ public class Dealitem implements Serializable{
     public int getDiskon() {
         return this.diskon;
     }
-    public int getImage() {
+    public String getImage() {
         return this.image;
     }
     public String getInfo() {

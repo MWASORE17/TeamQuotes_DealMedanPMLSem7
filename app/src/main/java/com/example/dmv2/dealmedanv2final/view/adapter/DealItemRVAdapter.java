@@ -2,6 +2,7 @@ package com.example.dmv2.dealmedanv2final.view.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -26,7 +27,6 @@ import static java.security.AccessController.getContext;
 
 public class DealItemRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Dealitem> dealitems;
-    Context mContext;
 
     public List<Dealitem> getDealitems() {
         return dealitems;
@@ -59,7 +59,11 @@ public class DealItemRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         _holder.price.setText(_dealitem.getIDRHarga());
         _holder.price.setPaintFlags(_holder.price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
-        _holder.image.setImageResource(_dealitem.getImage());
+        Resources resources = _holder.image.getContext().getResources();
+        final int resourceId = resources.getIdentifier(_dealitem.getImage(), "drawable",
+                _holder.image.getContext().getPackageName());
+
+        _holder.image.setImageResource(resourceId);
 
         _holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

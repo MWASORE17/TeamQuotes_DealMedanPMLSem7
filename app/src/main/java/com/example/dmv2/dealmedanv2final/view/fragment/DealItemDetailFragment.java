@@ -1,7 +1,9 @@
 package com.example.dmv2.dealmedanv2final.view.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Paint;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -33,6 +35,7 @@ import org.w3c.dom.Text;
 public class DealItemDetailFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    Context mContext;
 
     private TextView
             name,
@@ -97,7 +100,12 @@ public class DealItemDetailFragment extends Fragment {
         price_disc.setText(dealitem.getIDRHargaDiskon());
         price.setText(dealitem.getIDRHarga());
         price.setPaintFlags(price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        image.setImageResource(dealitem.getImage());
+
+        Resources resources = this.getActivity().getResources();
+        final int resourceId = resources.getIdentifier(dealitem.getImage(), "drawable",
+                this.getActivity().getPackageName());
+
+        image.setImageResource(resourceId);
     }
 
     private void getListener(final View v, final Dealitem _dealitem) {
