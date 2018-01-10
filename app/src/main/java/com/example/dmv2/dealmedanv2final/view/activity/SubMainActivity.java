@@ -27,6 +27,7 @@ import com.example.dmv2.dealmedanv2final.view.fragment.PayConfirmFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.TopupFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -140,7 +141,10 @@ public class SubMainActivity extends ParentActivity {
                 }
             }, 2100);
         } else if(value.equals("History")) {
+            //dealitem = (Dealitem) getIntent().getExtras().get("dealitem");
+            //orderDetails = (List<OrderDetail>) getIntent().getExtras().get("order_detail");
             setTitle("History Order"); // set Title Activity
+            //this.changefragment(new HistoryFragment(dealitem, orderDetails));
             this.changefragment(new HistoryFragment());
         }
         else if(value.equals("wallet")) {

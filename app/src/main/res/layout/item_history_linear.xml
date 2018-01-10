@@ -1,5 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/item_history_Linearimage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:src="@drawable/abc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12sp"
+                >
+                <TextView
+                    android:id="@+id/item_history_linearcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8sp"
+                    android:text="Code"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                <TextView
+                android:id="@+id/item_history_linearname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Product Name"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/item_history_lineartipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Type"
+                    />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:ellipsize="end"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"
+                        android:id="@+id/item_history_linearprice"
+                        android:layout_marginBottom="8sp"
+                        android:text="Price"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/tem_history_linear_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corder"
+                        android:padding="10dp"
+                        android:text="Status"
+                        android:textAlignment="center"
+                        android:textColor="@color/whitess"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+
+
+                </RelativeLayout>
+            </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+<!--<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,6 +115,7 @@
         android:orientation="vertical"
         android:padding="6dip">
 
+
         <LinearLayout
             android:id="@+id/item_history_linear.one"
             android:layout_width="wrap_content"
@@ -21,10 +124,18 @@
             android:orientation="vertical"
             android:padding="8dp">
 
+            <ImageView
+                android:id="@+id/item_history_linearimage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:src="@drawable/abc" />
+
             <TextView
                 android:id="@+id/item_history_linearcode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
                 android:layout_marginBottom="8sp"
                 android:text="Code"
                 android:textColor="@color/primary_text"
@@ -59,7 +170,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:orientation="vertical"
-            android:paddingTop="17dp">
+            android:paddingTop="240dp">
 
             <TextView
                 android:id="@+id/tem_history_linear_status"
@@ -74,15 +185,10 @@
                 android:textSize="14dp"
                 android:textStyle="bold" />
 
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Lihat Pemesanan"-->
-                <!--android:textAlignment="center"-->
-                <!--android:paddingTop="5dp"-->
-                <!--android:textColor="@color/colorPrimary"/>-->
 
         </LinearLayout>
 
+
+
     </RelativeLayout>
-</android.support.v7.widget.CardView>
+</android.support.v7.widget.CardView>-->

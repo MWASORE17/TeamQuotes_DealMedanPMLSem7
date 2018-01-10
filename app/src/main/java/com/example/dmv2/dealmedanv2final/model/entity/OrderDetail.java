@@ -12,7 +12,7 @@ public class OrderDetail implements Serializable {
     private int id, order_id, deal_id, quantity;
     private double sub_total;
 
-    public static ArrayList<OrderDetail> orders_detail = new ArrayList<OrderDetail>();
+    public static ArrayList<OrderDetail> orders_detail = new ArrayList<>();
     public static int _id = 1;
     public OrderDetail(int order_id, int deal_id, int quantity, double sub_total) {
         this.id = _id;

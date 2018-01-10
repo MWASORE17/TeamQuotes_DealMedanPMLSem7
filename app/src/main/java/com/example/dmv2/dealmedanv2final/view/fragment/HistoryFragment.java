@@ -12,7 +12,10 @@ import android.widget.TextView;
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
 import com.example.dmv2.dealmedanv2final.model.entity.Order;
+import com.example.dmv2.dealmedanv2final.model.entity.OrderDetail;
 import com.example.dmv2.dealmedanv2final.view.adapter.HistoryRVAdapter;
+
+import java.util.List;
 
 /**
  * Created by CM on 6/19/2017.
@@ -21,6 +24,9 @@ import com.example.dmv2.dealmedanv2final.view.adapter.HistoryRVAdapter;
 public class HistoryFragment extends Fragment {
     private RecyclerView rv;
     private HistoryRVAdapter adapter;
+    private List<OrderDetail> orderDetails;
+    private Dealitem dealitem;
+
     TextView txtNF;
     private View _view;
 

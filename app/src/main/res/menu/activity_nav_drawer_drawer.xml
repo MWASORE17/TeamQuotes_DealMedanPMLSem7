@@ -10,7 +10,7 @@
             android:title="Voucher Deals" />
         <item
             android:id="@+id/nav_product"
-            android:title="Product Deals" />
+            android:title="History Deals" />
         <item
             android:id="@+id/nav_fav_deals"
             android:title="My Favorite Deals" />

@@ -1,6 +1,7 @@
 package com.example.dmv2.dealmedanv2final.view.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,12 +19,16 @@ import android.view.View;
 
 import com.example.dmv2.dealmedanv2final.R;
 import com.example.dmv2.dealmedanv2final.model.DummyData;
+import com.example.dmv2.dealmedanv2final.model.entity.Dealitem;
+import com.example.dmv2.dealmedanv2final.model.entity.OrderDetail;
 import com.example.dmv2.dealmedanv2final.model.entity.User;
 import com.example.dmv2.dealmedanv2final.model.session.SessionManager;
 import com.example.dmv2.dealmedanv2final.view.fragment.CheckCodeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.HistoryFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.HomeFragment;
 import com.example.dmv2.dealmedanv2final.view.fragment.WalletFragment;
+
+import java.util.List;
 
 /**
  * Created by CM on 6/12/2017.
@@ -113,6 +118,10 @@ public class SecondActivity extends ParentActivity {
                             changefragment(new HomeFragment(1));
 
                         } else if (id == R.id.nav_product) {
+                            //Intent intent = getIntent();
+                            //String abc = intent.getExtras().toString();
+                            //orderDetails = (List<OrderDetail>) intent.getExtras().get("order_detail");
+                            //dealitem = (Dealitem) intent.getExtras().get("dealitem");
                             changefragment(new HistoryFragment());
                             setTitle("History");
                         } else if (id == R.id.nav_fav_deals) {
